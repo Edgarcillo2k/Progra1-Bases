@@ -1,5 +1,5 @@
 ﻿@page
-@model Progra1_Bases.Pages.Personas.IndexModel
+@model Progra1_Bases.Pages.Clientes.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,26 +14,35 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Persona[0].nombre)
+                @Html.DisplayNameFor(model => model.Cliente[0].password)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona[0].fechaNacimiento)
+                @Html.DisplayNameFor(model => model.Cliente[0].username)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona[0].email)
+                @Html.DisplayNameFor(model => model.Cliente[0].nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona[0].docId)
+                @Html.DisplayNameFor(model => model.Cliente[0].fechaNacimiento)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona[0].doc)
+                @Html.DisplayNameFor(model => model.Cliente[0].email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].doc)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Persona) {
+@foreach (var item in Model.Cliente) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.nombre)
             </td>
@@ -42,9 +51,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.docId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.doc)

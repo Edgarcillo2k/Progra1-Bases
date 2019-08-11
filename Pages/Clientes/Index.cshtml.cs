@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Progra1_Bases.Models;
 
-namespace Progra1_Bases.Pages.Personas
+namespace Progra1_Bases.Pages.Clientes
 {
     public class IndexModel : PageModel
     {
@@ -18,11 +18,11 @@ namespace Progra1_Bases.Pages.Personas
             _context = context;
         }
 
-        public IList<Persona> Persona { get;set; }
+        public IList<Cliente> Cliente { get;set; }
 
         public async Task OnGetAsync()
         {
-            Persona = await _context.Persona.ToListAsync();
+            Cliente = await _context.Cliente.ToListAsync();
         }
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Progra1_Bases.Models;
 
-namespace Progra1_Bases.Pages.Personas
+namespace Progra1_Bases.Pages.Clientes
 {
     public class EditModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace Progra1_Bases.Pages.Personas
         }
 
         [BindProperty]
-        public Persona Persona { get; set; }
+        public Cliente Cliente { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,9 @@ namespace Progra1_Bases.Pages.Personas
                 return NotFound();
             }
 
-            Persona = await _context.Persona.FirstOrDefaultAsync(m => m.ID == id);
+            Cliente = await _context.Cliente.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Persona == null)
+            if (Cliente == null)
             {
                 return NotFound();
             }
@@ -45,7 +45,7 @@ namespace Progra1_Bases.Pages.Personas
                 return Page();
             }
 
-            _context.Attach(Persona).State = EntityState.Modified;
+            _context.Attach(Cliente).State = EntityState.Modified;
 
             try
             {
@@ -53,7 +53,7 @@ namespace Progra1_Bases.Pages.Personas
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PersonaExists(Persona.ID))
+                if (!ClienteExists(Cliente.ID))
                 {
                     return NotFound();
                 }
@@ -66,9 +66,9 @@ namespace Progra1_Bases.Pages.Personas
             return RedirectToPage("./Index");
         }
 
-        private bool PersonaExists(int id)
+        private bool ClienteExists(int id)
         {
-            return _context.Persona.Any(e => e.ID == id);
+            return _context.Cliente.Any(e => e.ID == id);
         }
     }
 }

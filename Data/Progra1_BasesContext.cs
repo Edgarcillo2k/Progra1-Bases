@@ -17,5 +17,9 @@ namespace Progra1_Bases.Models
         public DbSet<Progra1_Bases.Models.Persona> Persona { get; set; }
 
         public DbSet<Progra1_Bases.Models.Doc> Doc { get; set; }
+
+        public DbSet<Progra1_Bases.Models.Cliente> Cliente { get; set; }
+
+        public DbSet<Progra1_Bases.Models.Parentesco> Parentesco { get; set; }
     }
 }

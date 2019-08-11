@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Progra1_Bases.Models;
 
-namespace Progra1_Bases.Pages.Personas
+namespace Progra1_Bases.Pages.Parentescos
 {
     public class DeleteModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace Progra1_Bases.Pages.Personas
         }
 
         [BindProperty]
-        public Persona Persona { get; set; }
+        public Parentesco Parentesco { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +28,9 @@ namespace Progra1_Bases.Pages.Personas
                 return NotFound();
             }
 
-            Persona = await _context.Persona.FirstOrDefaultAsync(m => m.ID == id);
+            Parentesco = await _context.Parentesco.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Persona == null)
+            if (Parentesco == null)
             {
                 return NotFound();
             }
@@ -44,11 +44,11 @@ namespace Progra1_Bases.Pages.Personas
                 return NotFound();
             }
 
-            Persona = await _context.Persona.FindAsync(id);
+            Parentesco = await _context.Parentesco.FindAsync(id);
 
-            if (Persona != null)
+            if (Parentesco != null)
             {
-                _context.Persona.Remove(Persona);
+                _context.Parentesco.Remove(Parentesco);
                 await _context.SaveChangesAsync();
             }
 

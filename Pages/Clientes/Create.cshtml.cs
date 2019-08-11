@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Progra1_Bases.Models;
 
-namespace Progra1_Bases.Pages.Personas
+namespace Progra1_Bases.Pages.Clientes
 {
     public class CreateModel : PageModel
     {
@@ -24,7 +24,7 @@ namespace Progra1_Bases.Pages.Personas
         }
 
         [BindProperty]
-        public Persona Persona { get; set; }
+        public Cliente Cliente { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -33,7 +33,7 @@ namespace Progra1_Bases.Pages.Personas
                 return Page();
             }
 
-            _context.Persona.Add(Persona);
+            _context.Cliente.Add(Cliente);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

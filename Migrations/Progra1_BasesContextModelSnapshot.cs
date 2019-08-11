@@ -38,6 +38,9 @@ namespace Progra1_Bases.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
+
                     b.Property<int>("doc");
 
                     b.Property<int>("docId");
@@ -53,11 +56,24 @@ namespace Progra1_Bases.Migrations
                     b.HasIndex("docId");
 
                     b.ToTable("Persona");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Persona");
+                });
+
+            modelBuilder.Entity("Progra1_Bases.Models.Cliente", b =>
+                {
+                    b.HasBaseType("Progra1_Bases.Models.Persona");
+
+                    b.Property<string>("password");
+
+                    b.Property<string>("username");
+
+                    b.HasDiscriminator().HasValue("Cliente");
                 });
 
             modelBuilder.Entity("Progra1_Bases.Models.Persona", b =>
                 {
-                    b.HasOne("Progra1_Bases.Models.Doc")
+                    b.HasOne("Progra1_Bases.Models.Doc", "Doc")
                         .WithMany("personas")
                         .HasForeignKey("docId")
                         .OnDelete(DeleteBehavior.Cascade);

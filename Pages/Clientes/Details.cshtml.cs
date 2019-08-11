@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Progra1_Bases.Models;
 
-namespace Progra1_Bases.Pages.Personas
+namespace Progra1_Bases.Pages.Clientes
 {
     public class DetailsModel : PageModel
     {
@@ -18,7 +18,7 @@ namespace Progra1_Bases.Pages.Personas
             _context = context;
         }
 
-        public Persona Persona { get; set; }
+        public Cliente Cliente { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,9 +27,9 @@ namespace Progra1_Bases.Pages.Personas
                 return NotFound();
             }
 
-            Persona = await _context.Persona.FirstOrDefaultAsync(m => m.ID == id);
+            Cliente = await _context.Cliente.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Persona == null)
+            if (Cliente == null)
             {
                 return NotFound();
             }
