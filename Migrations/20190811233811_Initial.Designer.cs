@@ -10,8 +10,8 @@ using Progra1_Bases.Models;
 namespace Progra1_Bases.Migrations
 {
     [DbContext(typeof(Progra1_BasesContext))]
-    [Migration("20190811223132_CuentaObjetivo")]
-    partial class CuentaObjetivo
+    [Migration("20190811233811_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -291,7 +291,7 @@ namespace Progra1_Bases.Migrations
 
                     b.Property<bool>("Activo");
 
-                    b.Property<int>("CuentaAhorroId");
+                    b.Property<int?>("CuentaAhorroId");
 
                     b.Property<DateTime>("FechaDesactivacion");
 
@@ -391,8 +391,7 @@ namespace Progra1_Bases.Migrations
                 {
                     b.HasOne("Progra1_Bases.Models.CuentaAhorro")
                         .WithOne("Beneficiario")
-                        .HasForeignKey("Progra1_Bases.Models.Beneficiario", "CuentaAhorroId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("Progra1_Bases.Models.Beneficiario", "CuentaAhorroId");
 
                     b.HasOne("Progra1_Bases.Models.Parentesco")
                         .WithMany("Beneficiarios")

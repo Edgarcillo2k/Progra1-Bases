@@ -14,6 +14,6 @@ namespace Progra1_Bases.Models
         [StringLength(20)]
         public int ParentescoId { get; set; }
         public bool Activo { get; set; }
-        public int CuentaAhorroId { get; set; }
+        public int? CuentaAhorroId { get; set; }
     }
 }

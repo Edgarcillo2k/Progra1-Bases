@@ -289,7 +289,7 @@ namespace Progra1_Bases.Migrations
 
                     b.Property<bool>("Activo");
 
-                    b.Property<int>("CuentaAhorroId");
+                    b.Property<int?>("CuentaAhorroId");
 
                     b.Property<DateTime>("FechaDesactivacion");
 
@@ -389,8 +389,7 @@ namespace Progra1_Bases.Migrations
                 {
                     b.HasOne("Progra1_Bases.Models.CuentaAhorro")
                         .WithOne("Beneficiario")
-                        .HasForeignKey("Progra1_Bases.Models.Beneficiario", "CuentaAhorroId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("Progra1_Bases.Models.Beneficiario", "CuentaAhorroId");
 
                     b.HasOne("Progra1_Bases.Models.Parentesco")
                         .WithMany("Beneficiarios")
