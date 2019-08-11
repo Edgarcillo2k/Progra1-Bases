@@ -4,9 +4,10 @@ namespace Progra1_Bases.Models
 {
     public class Cliente:Persona
     {
-        [Display(Name = "Clave")]
-        public string password { get; set; }
+        [Display(Name = "Contraseña")]
+        public string Password { get; set; }
         [Display(Name = "Nombre de usuario")]
-        public string username { get; set; }
+        public string Username { get; set; }
+        public CuentaAhorro CuentaAhorro { get; set; }
     }
 }

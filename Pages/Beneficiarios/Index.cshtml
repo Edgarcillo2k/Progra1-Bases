@@ -14,25 +14,31 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Beneficiario[0].fechaDesactivacion)
+                @Html.DisplayNameFor(model => model.Beneficiario[0].FechaDesactivacion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Beneficiario[0].porcentajeBeneficio)
+                @Html.DisplayNameFor(model => model.Beneficiario[0].PorcentajeBeneficio)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Beneficiario[0].activo)
+                @Html.DisplayNameFor(model => model.Beneficiario[0].ParentescoId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Beneficiario[0].nombre)
+                @Html.DisplayNameFor(model => model.Beneficiario[0].Activo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Beneficiario[0].fechaNacimiento)
+                @Html.DisplayNameFor(model => model.Beneficiario[0].Nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Beneficiario[0].email)
+                @Html.DisplayNameFor(model => model.Beneficiario[0].FechaNacimiento)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Beneficiario[0].doc)
+                @Html.DisplayNameFor(model => model.Beneficiario[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Beneficiario[0].DocId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Beneficiario[0].Doc)
             </th>
             <th></th>
         </tr>
@@ -41,25 +47,31 @@
 @foreach (var item in Model.Beneficiario) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.fechaDesactivacion)
+                @Html.DisplayFor(modelItem => item.FechaDesactivacion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.porcentajeBeneficio)
+                @Html.DisplayFor(modelItem => item.PorcentajeBeneficio)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.activo)
+                @Html.DisplayFor(modelItem => item.ParentescoId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.nombre)
+                @Html.DisplayFor(modelItem => item.Activo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.fechaNacimiento)
+                @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.email)
+                @Html.DisplayFor(modelItem => item.FechaNacimiento)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.doc)
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doc)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

@@ -10,17 +10,17 @@ namespace Progra1_Bases.Models
     public class TipoCuenta
     {
         public int ID { get; set; }
-        public string nombre { get; set; }
+        public string Nombre { get; set; }
         [Column(TypeName = "decimal(18,2)")]
-        public decimal saldoMinimo { get; set; }
+        public decimal SaldoMinimo { get; set; }
         [Column(TypeName = "decimal(18,2)")]
-        public decimal multaIncumplimientoSaldoMinimo { get; set; }
+        public decimal MultaIncumplimientoSaldoMinimo { get; set; }
         [Column(TypeName = "decimal(18,2)")]
-        public decimal montoMensualCargosServico { get; set; }
-        public int maxRetirosCajeroHumano { get; set; }
+        public decimal MontoMensualCargosServico { get; set; }
+        public int MaxRetirosCajeroHumano { get; set; }
         [Column(TypeName = "decimal(18,2)")]
-        public decimal multaRetiroCajeroHumanoExceso { get; set; }
-        public int tasaInteres { get; set; }
-        public List<CuentaAhorro> cuentas { get; set; }
+        public decimal MultaRetiroCajeroHumanoExceso { get; set; }
+        public int TasaInteres { get; set; }
+        public List<CuentaAhorro> Cuentas { get; set; }
     }
 }

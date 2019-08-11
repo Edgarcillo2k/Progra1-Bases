@@ -6,6 +6,11 @@
     <RootNamespace>Progra1_Bases</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20190811214836_actualizacion.cs" />
+    <Compile Remove="Migrations\20190811214836_actualizacion.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />

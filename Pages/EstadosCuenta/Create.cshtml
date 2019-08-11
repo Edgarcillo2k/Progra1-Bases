@@ -1,0 +1,68 @@
+﻿@page
+@model Progra1_Bases.Pages.EstadosCuenta.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>EstadoCuenta</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EstadoCuenta.CuentaAhorroId" class="control-label"></label>
+                <select asp-for="EstadoCuenta.CuentaAhorroId" class ="form-control" asp-items="ViewBag.CuentaAhorroId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoCuenta.FechaInicio" class="control-label"></label>
+                <input asp-for="EstadoCuenta.FechaInicio" class="form-control" />
+                <span asp-validation-for="EstadoCuenta.FechaInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoCuenta.FechaFinalizacion" class="control-label"></label>
+                <input asp-for="EstadoCuenta.FechaFinalizacion" class="form-control" />
+                <span asp-validation-for="EstadoCuenta.FechaFinalizacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoCuenta.SaldoInicial" class="control-label"></label>
+                <input asp-for="EstadoCuenta.SaldoInicial" class="form-control" />
+                <span asp-validation-for="EstadoCuenta.SaldoInicial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoCuenta.SaldoFinal" class="control-label"></label>
+                <input asp-for="EstadoCuenta.SaldoFinal" class="form-control" />
+                <span asp-validation-for="EstadoCuenta.SaldoFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoCuenta.CantRetirosCajeroHumano" class="control-label"></label>
+                <input asp-for="EstadoCuenta.CantRetirosCajeroHumano" class="form-control" />
+                <span asp-validation-for="EstadoCuenta.CantRetirosCajeroHumano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoCuenta.CantRetirosCajeroAutomatico" class="control-label"></label>
+                <input asp-for="EstadoCuenta.CantRetirosCajeroAutomatico" class="form-control" />
+                <span asp-validation-for="EstadoCuenta.CantRetirosCajeroAutomatico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoCuenta.SaldoMinimo" class="control-label"></label>
+                <input asp-for="EstadoCuenta.SaldoMinimo" class="form-control" />
+                <span asp-validation-for="EstadoCuenta.SaldoMinimo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

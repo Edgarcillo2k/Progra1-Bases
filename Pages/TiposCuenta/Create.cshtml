@@ -1,0 +1,64 @@
+﻿@page
+@model Progra1_Bases.Pages.TiposCuenta.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TipoCuenta</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TipoCuenta.Nombre" class="control-label"></label>
+                <input asp-for="TipoCuenta.Nombre" class="form-control" />
+                <span asp-validation-for="TipoCuenta.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoCuenta.SaldoMinimo" class="control-label"></label>
+                <input asp-for="TipoCuenta.SaldoMinimo" class="form-control" />
+                <span asp-validation-for="TipoCuenta.SaldoMinimo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoCuenta.MultaIncumplimientoSaldoMinimo" class="control-label"></label>
+                <input asp-for="TipoCuenta.MultaIncumplimientoSaldoMinimo" class="form-control" />
+                <span asp-validation-for="TipoCuenta.MultaIncumplimientoSaldoMinimo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoCuenta.MontoMensualCargosServico" class="control-label"></label>
+                <input asp-for="TipoCuenta.MontoMensualCargosServico" class="form-control" />
+                <span asp-validation-for="TipoCuenta.MontoMensualCargosServico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoCuenta.MaxRetirosCajeroHumano" class="control-label"></label>
+                <input asp-for="TipoCuenta.MaxRetirosCajeroHumano" class="form-control" />
+                <span asp-validation-for="TipoCuenta.MaxRetirosCajeroHumano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoCuenta.MultaRetiroCajeroHumanoExceso" class="control-label"></label>
+                <input asp-for="TipoCuenta.MultaRetiroCajeroHumanoExceso" class="form-control" />
+                <span asp-validation-for="TipoCuenta.MultaRetiroCajeroHumanoExceso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoCuenta.TasaInteres" class="control-label"></label>
+                <input asp-for="TipoCuenta.TasaInteres" class="form-control" />
+                <span asp-validation-for="TipoCuenta.TasaInteres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

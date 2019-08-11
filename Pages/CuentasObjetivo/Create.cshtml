@@ -1,0 +1,58 @@
+﻿@page
+@model Progra1_Bases.Pages.CuentasObjetivo.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>CuentaObjetivo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CuentaObjetivo.Saldo" class="control-label"></label>
+                <input asp-for="CuentaObjetivo.Saldo" class="form-control" />
+                <span asp-validation-for="CuentaObjetivo.Saldo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CuentaObjetivo.FechaInicio" class="control-label"></label>
+                <input asp-for="CuentaObjetivo.FechaInicio" class="form-control" />
+                <span asp-validation-for="CuentaObjetivo.FechaInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CuentaObjetivo.FechaFinalizacion" class="control-label"></label>
+                <input asp-for="CuentaObjetivo.FechaFinalizacion" class="form-control" />
+                <span asp-validation-for="CuentaObjetivo.FechaFinalizacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CuentaObjetivo.Monto" class="control-label"></label>
+                <input asp-for="CuentaObjetivo.Monto" class="form-control" />
+                <span asp-validation-for="CuentaObjetivo.Monto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CuentaObjetivo.Nombre" class="control-label"></label>
+                <input asp-for="CuentaObjetivo.Nombre" class="form-control" />
+                <span asp-validation-for="CuentaObjetivo.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CuentaObjetivo.CuentaAhorroId" class="control-label"></label>
+                <select asp-for="CuentaObjetivo.CuentaAhorroId" class ="form-control" asp-items="ViewBag.CuentaAhorroId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,40 @@
+﻿@page
+@model Progra1_Bases.Pages.Monedas.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Moneda</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Moneda.ID" />
+            <div class="form-group">
+                <label asp-for="Moneda.Nombre" class="control-label"></label>
+                <input asp-for="Moneda.Nombre" class="form-control" />
+                <span asp-validation-for="Moneda.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Moneda.Simbolo" class="control-label"></label>
+                <input asp-for="Moneda.Simbolo" class="form-control" />
+                <span asp-validation-for="Moneda.Simbolo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -14,50 +14,50 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Beneficiario.fechaDesactivacion" class="control-label"></label>
-                <input asp-for="Beneficiario.fechaDesactivacion" class="form-control" />
-                <span asp-validation-for="Beneficiario.fechaDesactivacion" class="text-danger"></span>
+                <label asp-for="Beneficiario.FechaDesactivacion" class="control-label"></label>
+                <input asp-for="Beneficiario.FechaDesactivacion" class="form-control" />
+                <span asp-validation-for="Beneficiario.FechaDesactivacion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Beneficiario.porcentajeBeneficio" class="control-label"></label>
-                <input asp-for="Beneficiario.porcentajeBeneficio" class="form-control" />
-                <span asp-validation-for="Beneficiario.porcentajeBeneficio" class="text-danger"></span>
+                <label asp-for="Beneficiario.PorcentajeBeneficio" class="control-label"></label>
+                <input asp-for="Beneficiario.PorcentajeBeneficio" class="form-control" />
+                <span asp-validation-for="Beneficiario.PorcentajeBeneficio" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Beneficiario.parentescoId" class="control-label"></label>
-                <select asp-for="Beneficiario.parentescoId" class="form-control" asp-items="ViewBag.parentescoId"></select>
-                <span asp-validation-for="Beneficiario.parentescoId" class="text-danger"></span>
+                <label asp-for="Beneficiario.ParentescoId" class="control-label"></label>
+                <input asp-for="Beneficiario.ParentescoId" class="form-control" />
+                <span asp-validation-for="Beneficiario.ParentescoId" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Beneficiario.activo" /> @Html.DisplayNameFor(model => model.Beneficiario.activo)
+                    <input class="form-check-input" asp-for="Beneficiario.Activo" /> @Html.DisplayNameFor(model => model.Beneficiario.Activo)
                 </label>
             </div>
             <input type="hidden" asp-for="Beneficiario.ID" />
             <div class="form-group">
-                <label asp-for="Beneficiario.nombre" class="control-label"></label>
-                <input asp-for="Beneficiario.nombre" class="form-control" />
-                <span asp-validation-for="Beneficiario.nombre" class="text-danger"></span>
+                <label asp-for="Beneficiario.Nombre" class="control-label"></label>
+                <input asp-for="Beneficiario.Nombre" class="form-control" />
+                <span asp-validation-for="Beneficiario.Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Beneficiario.fechaNacimiento" class="control-label"></label>
-                <input asp-for="Beneficiario.fechaNacimiento" class="form-control" />
-                <span asp-validation-for="Beneficiario.fechaNacimiento" class="text-danger"></span>
+                <label asp-for="Beneficiario.FechaNacimiento" class="control-label"></label>
+                <input asp-for="Beneficiario.FechaNacimiento" class="form-control" />
+                <span asp-validation-for="Beneficiario.FechaNacimiento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Beneficiario.email" class="control-label"></label>
-                <input asp-for="Beneficiario.email" class="form-control" />
-                <span asp-validation-for="Beneficiario.email" class="text-danger"></span>
+                <label asp-for="Beneficiario.Email" class="control-label"></label>
+                <input asp-for="Beneficiario.Email" class="form-control" />
+                <span asp-validation-for="Beneficiario.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Beneficiario.docId" class="control-label"></label>
-                <select asp-for="Beneficiario.docId" class="form-control" asp-items="ViewBag.docId"></select>
-                <span asp-validation-for="Beneficiario.docId" class="text-danger"></span>
+                <label asp-for="Beneficiario.DocId" class="control-label"></label>
+                <input asp-for="Beneficiario.DocId" class="form-control" />
+                <span asp-validation-for="Beneficiario.DocId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Beneficiario.doc" class="control-label"></label>
-                <input asp-for="Beneficiario.doc" class="form-control" />
-                <span asp-validation-for="Beneficiario.doc" class="text-danger"></span>
+                <label asp-for="Beneficiario.Doc" class="control-label"></label>
+                <input asp-for="Beneficiario.Doc" class="form-control" />
+                <span asp-validation-for="Beneficiario.Doc" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

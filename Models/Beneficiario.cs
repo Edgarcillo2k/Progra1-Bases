@@ -7,12 +7,13 @@ namespace Progra1_Bases.Models
     {
         [Display(Name = "Fecha de desactivacion")]
         [DataType(DataType.Date)]
-        public DateTime? fechaDesactivacion { get; set; }
+        public DateTime FechaDesactivacion { get; set; }
         [Display(Name = "Porcentaje de beneficio")]
-        public int porcentajeBeneficio { get; set; }
+        public int PorcentajeBeneficio { get; set; }
         [Display(Name = "Parentesco")]
-        public int parentescoId { get; set; }
-        [Display(Name = "Activo")]
-        public bool activo { get; set; }
+        [StringLength(20)]
+        public int ParentescoId { get; set; }
+        public bool Activo { get; set; }
+        public int CuentaAhorroId { get; set; }
     }
 }
