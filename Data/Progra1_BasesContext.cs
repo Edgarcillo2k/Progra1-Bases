@@ -21,5 +21,7 @@ namespace Progra1_Bases.Models
         public DbSet<Progra1_Bases.Models.Cliente> Cliente { get; set; }
 
         public DbSet<Progra1_Bases.Models.Parentesco> Parentesco { get; set; }
+
+        public DbSet<Progra1_Bases.Models.Beneficiario> Beneficiario { get; set; }
     }
 }

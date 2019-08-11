@@ -1,0 +1,72 @@
+﻿@page
+@model Progra1_Bases.Pages.Beneficiarios.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Beneficiario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Beneficiario.fechaDesactivacion" class="control-label"></label>
+                <input asp-for="Beneficiario.fechaDesactivacion" class="form-control" />
+                <span asp-validation-for="Beneficiario.fechaDesactivacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beneficiario.porcentajeBeneficio" class="control-label"></label>
+                <input asp-for="Beneficiario.porcentajeBeneficio" class="form-control" />
+                <span asp-validation-for="Beneficiario.porcentajeBeneficio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beneficiario.parentescoId" class="control-label"></label>
+                <select asp-for="Beneficiario.parentescoId" class ="form-control" asp-items="ViewBag.parentescoId"></select>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Beneficiario.activo" /> @Html.DisplayNameFor(model => model.Beneficiario.activo))
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beneficiario.nombre" class="control-label"></label>
+                <input asp-for="Beneficiario.nombre" class="form-control" />
+                <span asp-validation-for="Beneficiario.nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beneficiario.fechaNacimiento" class="control-label"></label>
+                <input asp-for="Beneficiario.fechaNacimiento" class="form-control" />
+                <span asp-validation-for="Beneficiario.fechaNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beneficiario.email" class="control-label"></label>
+                <input asp-for="Beneficiario.email" class="form-control" />
+                <span asp-validation-for="Beneficiario.email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beneficiario.docId" class="control-label"></label>
+                <select asp-for="Beneficiario.docId" class ="form-control" asp-items="ViewBag.docId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beneficiario.doc" class="control-label"></label>
+                <input asp-for="Beneficiario.doc" class="form-control" />
+                <span asp-validation-for="Beneficiario.doc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
