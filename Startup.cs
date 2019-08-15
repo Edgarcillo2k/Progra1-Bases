@@ -10,9 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using Progra1_Bases.Models;
+using Progra1_bases.Models;
 
-namespace Progra1_Bases
+namespace Progra1_bases
 {
     public class Startup
     {
@@ -36,8 +36,8 @@ namespace Progra1_Bases
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<Progra1_BasesContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("Progra1_BasesContext")));
+            services.AddDbContext<Progra1_basesContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("Progra1_basesContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,7 +49,7 @@ namespace Progra1_Bases
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -58,7 +58,12 @@ namespace Progra1_Bases
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }

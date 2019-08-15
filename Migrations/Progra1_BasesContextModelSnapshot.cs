@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Progra1_Bases.Models;
+using Progra1_bases.Models;
 
-namespace Progra1_Bases.Migrations
+namespace Progra1_bases.Migrations
 {
-    [DbContext(typeof(Progra1_BasesContext))]
-    partial class Progra1_BasesContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(Progra1_basesContext))]
+    partial class Progra1_basesContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
