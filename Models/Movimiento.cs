@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Progra1_Bases.Models
+namespace Progra1_bases.Models
 {
     public class Movimiento
     {

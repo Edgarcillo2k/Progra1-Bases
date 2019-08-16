@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Progra1_Bases.Models
+namespace Progra1_bases.Models
 {
     public class Cliente:Persona
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Progra1_Bases.Models
+namespace Progra1_bases.Models
 {
     public class PersonaPorTelefono
     {

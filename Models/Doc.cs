@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Progra1_Bases.Models
+namespace Progra1_bases.Models
 {
     public class Doc
     {

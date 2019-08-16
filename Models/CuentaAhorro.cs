@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Progra1_Bases.Models
+namespace Progra1_bases.Models
 {
     public class CuentaAhorro
     {

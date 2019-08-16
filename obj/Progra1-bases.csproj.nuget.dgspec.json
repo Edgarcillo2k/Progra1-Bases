@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Edgar\\Desktop\\Progra1-bases\\Progra1-bases\\Progra1-bases.csproj": {}
+    "C:\\Users\\Edgar\\Desktop\\Importante\\TEC\\IV SEMESTRE\\BASES DE DATOS I\\Progra1-Bases\\Progra1-Bases\\Progra1-bases\\Progra1-bases.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Edgar\\Desktop\\Progra1-bases\\Progra1-bases\\Progra1-bases.csproj": {
+    "C:\\Users\\Edgar\\Desktop\\Importante\\TEC\\IV SEMESTRE\\BASES DE DATOS I\\Progra1-Bases\\Progra1-Bases\\Progra1-bases\\Progra1-bases.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Edgar\\Desktop\\Progra1-bases\\Progra1-bases\\Progra1-bases.csproj",
+        "projectUniqueName": "C:\\Users\\Edgar\\Desktop\\Importante\\TEC\\IV SEMESTRE\\BASES DE DATOS I\\Progra1-Bases\\Progra1-Bases\\Progra1-bases\\Progra1-bases.csproj",
         "projectName": "Progra1-bases",
-        "projectPath": "C:\\Users\\Edgar\\Desktop\\Progra1-bases\\Progra1-bases\\Progra1-bases.csproj",
+        "projectPath": "C:\\Users\\Edgar\\Desktop\\Importante\\TEC\\IV SEMESTRE\\BASES DE DATOS I\\Progra1-Bases\\Progra1-Bases\\Progra1-bases\\Progra1-bases.csproj",
         "packagesPath": "C:\\Users\\Edgar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Edgar\\Desktop\\Progra1-bases\\Progra1-bases\\obj\\",
+        "outputPath": "C:\\Users\\Edgar\\Desktop\\Importante\\TEC\\IV SEMESTRE\\BASES DE DATOS I\\Progra1-Bases\\Progra1-Bases\\Progra1-bases\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
