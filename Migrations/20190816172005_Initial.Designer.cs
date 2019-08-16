@@ -10,7 +10,7 @@ using Progra1_bases.Models;
 namespace Progra1_bases.Migrations
 {
     [DbContext(typeof(Progra1_basesContext))]
-    [Migration("20190815170642_Initial")]
+    [Migration("20190816172005_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,7 +21,7 @@ namespace Progra1_bases.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Progra1_Bases.Models.CuentaAhorro", b =>
+            modelBuilder.Entity("Progra1_bases.Models.CuentaAhorro", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -50,7 +50,7 @@ namespace Progra1_bases.Migrations
                     b.ToTable("CuentaAhorro");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.CuentaObjetivo", b =>
+            modelBuilder.Entity("Progra1_bases.Models.CuentaObjetivo", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -78,7 +78,7 @@ namespace Progra1_bases.Migrations
                     b.ToTable("CuentaObjetivo");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.Doc", b =>
+            modelBuilder.Entity("Progra1_bases.Models.Doc", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -91,7 +91,7 @@ namespace Progra1_bases.Migrations
                     b.ToTable("Doc");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.EstadoCuenta", b =>
+            modelBuilder.Entity("Progra1_bases.Models.EstadoCuenta", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -124,7 +124,7 @@ namespace Progra1_bases.Migrations
                     b.ToTable("EstadoCuenta");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.Moneda", b =>
+            modelBuilder.Entity("Progra1_bases.Models.Moneda", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -139,7 +139,7 @@ namespace Progra1_bases.Migrations
                     b.ToTable("Moneda");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.Movimiento", b =>
+            modelBuilder.Entity("Progra1_bases.Models.Movimiento", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -165,7 +165,7 @@ namespace Progra1_bases.Migrations
                     b.ToTable("Movimiento");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.Parentesco", b =>
+            modelBuilder.Entity("Progra1_bases.Models.Parentesco", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -178,7 +178,7 @@ namespace Progra1_bases.Migrations
                     b.ToTable("Parentesco");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.Persona", b =>
+            modelBuilder.Entity("Progra1_bases.Models.Persona", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -208,7 +208,7 @@ namespace Progra1_bases.Migrations
                     b.HasDiscriminator<string>("Discriminator").HasValue("Persona");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.PersonaPorTelefono", b =>
+            modelBuilder.Entity("Progra1_bases.Models.PersonaPorTelefono", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -228,7 +228,7 @@ namespace Progra1_bases.Migrations
                     b.ToTable("PersonaPorTelefono");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.Telefono", b =>
+            modelBuilder.Entity("Progra1_bases.Models.Telefono", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -243,7 +243,7 @@ namespace Progra1_bases.Migrations
                     b.ToTable("Telefono");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.TipoCuenta", b =>
+            modelBuilder.Entity("Progra1_bases.Models.TipoCuenta", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -272,7 +272,7 @@ namespace Progra1_bases.Migrations
                     b.ToTable("TipoCuenta");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.TipoMovimiento", b =>
+            modelBuilder.Entity("Progra1_bases.Models.TipoMovimiento", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -285,9 +285,9 @@ namespace Progra1_bases.Migrations
                     b.ToTable("TipoMovimiento");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.Beneficiario", b =>
+            modelBuilder.Entity("Progra1_bases.Models.Beneficiario", b =>
                 {
-                    b.HasBaseType("Progra1_Bases.Models.Persona");
+                    b.HasBaseType("Progra1_bases.Models.Persona");
 
                     b.Property<bool>("Activo");
 
@@ -309,9 +309,9 @@ namespace Progra1_bases.Migrations
                     b.HasDiscriminator().HasValue("Beneficiario");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.Cliente", b =>
+            modelBuilder.Entity("Progra1_bases.Models.Cliente", b =>
                 {
-                    b.HasBaseType("Progra1_Bases.Models.Persona");
+                    b.HasBaseType("Progra1_bases.Models.Persona");
 
                     b.Property<string>("Password");
 
@@ -320,80 +320,80 @@ namespace Progra1_bases.Migrations
                     b.HasDiscriminator().HasValue("Cliente");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.CuentaAhorro", b =>
+            modelBuilder.Entity("Progra1_bases.Models.CuentaAhorro", b =>
                 {
-                    b.HasOne("Progra1_Bases.Models.Cliente")
+                    b.HasOne("Progra1_bases.Models.Cliente")
                         .WithOne("CuentaAhorro")
-                        .HasForeignKey("Progra1_Bases.Models.CuentaAhorro", "ClienteId")
+                        .HasForeignKey("Progra1_bases.Models.CuentaAhorro", "ClienteId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Progra1_Bases.Models.Moneda")
+                    b.HasOne("Progra1_bases.Models.Moneda")
                         .WithMany("Cuentas")
                         .HasForeignKey("MonedaId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Progra1_Bases.Models.TipoCuenta")
+                    b.HasOne("Progra1_bases.Models.TipoCuenta")
                         .WithMany("Cuentas")
                         .HasForeignKey("TipoCuentaId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.CuentaObjetivo", b =>
+            modelBuilder.Entity("Progra1_bases.Models.CuentaObjetivo", b =>
                 {
-                    b.HasOne("Progra1_Bases.Models.CuentaAhorro")
+                    b.HasOne("Progra1_bases.Models.CuentaAhorro")
                         .WithOne("CuentaObjetivo")
-                        .HasForeignKey("Progra1_Bases.Models.CuentaObjetivo", "CuentaAhorroId")
+                        .HasForeignKey("Progra1_bases.Models.CuentaObjetivo", "CuentaAhorroId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.EstadoCuenta", b =>
+            modelBuilder.Entity("Progra1_bases.Models.EstadoCuenta", b =>
                 {
-                    b.HasOne("Progra1_Bases.Models.CuentaAhorro")
+                    b.HasOne("Progra1_bases.Models.CuentaAhorro")
                         .WithOne("EstadoCuenta")
-                        .HasForeignKey("Progra1_Bases.Models.EstadoCuenta", "CuentaAhorroId")
+                        .HasForeignKey("Progra1_bases.Models.EstadoCuenta", "CuentaAhorroId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.Movimiento", b =>
+            modelBuilder.Entity("Progra1_bases.Models.Movimiento", b =>
                 {
-                    b.HasOne("Progra1_Bases.Models.EstadoCuenta")
+                    b.HasOne("Progra1_bases.Models.EstadoCuenta")
                         .WithMany("Movimientos")
                         .HasForeignKey("EstadoCuentaId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Progra1_Bases.Models.TipoMovimiento")
+                    b.HasOne("Progra1_bases.Models.TipoMovimiento")
                         .WithMany("Movimientos")
                         .HasForeignKey("TipoMovimientoId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.Persona", b =>
+            modelBuilder.Entity("Progra1_bases.Models.Persona", b =>
                 {
-                    b.HasOne("Progra1_Bases.Models.Doc")
+                    b.HasOne("Progra1_bases.Models.Doc")
                         .WithMany("Personas")
                         .HasForeignKey("DocId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.PersonaPorTelefono", b =>
+            modelBuilder.Entity("Progra1_bases.Models.PersonaPorTelefono", b =>
                 {
-                    b.HasOne("Progra1_Bases.Models.Persona")
+                    b.HasOne("Progra1_bases.Models.Persona")
                         .WithOne("PersonaPorTelefono")
-                        .HasForeignKey("Progra1_Bases.Models.PersonaPorTelefono", "PersonaId")
+                        .HasForeignKey("Progra1_bases.Models.PersonaPorTelefono", "PersonaId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Progra1_Bases.Models.Telefono", "Telefono")
+                    b.HasOne("Progra1_bases.Models.Telefono", "Telefono")
                         .WithMany("PersonasPorTelefono")
                         .HasForeignKey("TelefonoID");
                 });
 
-            modelBuilder.Entity("Progra1_Bases.Models.Beneficiario", b =>
+            modelBuilder.Entity("Progra1_bases.Models.Beneficiario", b =>
                 {
-                    b.HasOne("Progra1_Bases.Models.CuentaAhorro")
+                    b.HasOne("Progra1_bases.Models.CuentaAhorro")
                         .WithOne("Beneficiario")
-                        .HasForeignKey("Progra1_Bases.Models.Beneficiario", "CuentaAhorroId");
+                        .HasForeignKey("Progra1_bases.Models.Beneficiario", "CuentaAhorroId");
 
-                    b.HasOne("Progra1_Bases.Models.Parentesco")
+                    b.HasOne("Progra1_bases.Models.Parentesco")
                         .WithMany("Beneficiarios")
                         .HasForeignKey("ParentescoId")
                         .OnDelete(DeleteBehavior.Cascade);
