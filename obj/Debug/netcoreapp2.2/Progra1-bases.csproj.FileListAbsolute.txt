@@ -1,0 +1,6 @@
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Progra1-bases.csprojAssemblyReference.cache
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Progra1-bases.csproj.CoreCompileInputs.cache
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Progra1-bases.RazorAssemblyInfo.cache
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Progra1-bases.RazorAssemblyInfo.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Progra1-bases.AssemblyInfoInputs.cache
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Progra1-bases.AssemblyInfo.cs
