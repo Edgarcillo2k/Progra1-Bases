@@ -22,35 +22,39 @@ namespace Progra1_bases.Controllers
         [Route("~/")]
         public IActionResult Index()
         {
+            if(HttpContext.Session.GetString("username") != null)
+            {
+                return View("Success");
+            }
             return View();
         }
 
         [Route("login")]
         [HttpPost]
-        public IActionResult Login(string username, string password)
+        public IActionResult Login(string Username, string Password)
         {
             //if (_context.Cliente.Any(e => e.Username == username) && _context.Cliente.Any(e => e.Password == password)) esto es mas rapido
             //pero no se como hacer que revise en el mismo elemento si la contrasenia coincide
             var clientes = from c in _context.Cliente
                          select c;
 
-            if (!String.IsNullOrEmpty(username))
+            if (!String.IsNullOrEmpty(Username))
             {
-                clientes = clientes.Where(s => s.Username.Equals(username) && s.Password.Equals(password));
+                clientes = clientes.Where(s => s.Username.Equals(Username) && s.Password.Equals(Password));
                 if (clientes.Count() > 0)
                 {
-                    HttpContext.Session.SetString("username", username);
+                    HttpContext.Session.SetString("username", Username);
                     return View("Success");
                 }
                 else
                 {
-                    ViewBag.error = "Invalid Account";
+                    ViewBag.error = "Cuenta invalida";
                     return View("Index");
                 }
             }
             else
             {
-                ViewBag.error = "Invalid Account";
+                ViewBag.error = "Cuenta invalida";
                 return View("Index");
             }
         }
