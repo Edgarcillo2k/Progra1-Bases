@@ -168,3 +168,9 @@ C:\Users\Edgar\Desktop\No importante\Progra1-bases\obj\Debug\netcoreapp2.2\Progr
 C:\Users\Edgar\Desktop\No importante\Progra1-bases\obj\Debug\netcoreapp2.2\Progra1-bases.pdb
 C:\Users\Edgar\Desktop\No importante\Progra1-bases\obj\Debug\netcoreapp2.2\Progra1-bases.csproj.CopyComplete
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\agregarBeneficiario.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\indexBeneficiarios.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Parentescoes\Create.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Parentescoes\Delete.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Parentescoes\Details.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Parentescoes\Edit.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Parentescoes\Index.g.cshtml.cs

@@ -5,40 +5,52 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Progra1_bases.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Progra1_bases.Controllers
 {
-    [Route("account")]
     public class AccountController : Controller
     {
         private readonly Progra1_basesContext _context;
-
         public AccountController(Progra1_basesContext context)
         {
             _context = context;
         }
-        [Route("")]
-        [Route("index")]
-        [Route("~/")]
+
         public IActionResult Index()
         {
-            return View("Success");
             if(HttpContext.Session.GetString("username") != null)
             {
                 return View("Success");
             }
-            return View();
+            return View("Success");
         }
 
-        [Route("agregarBeneficiario")]
-        [HttpPost]
-        public IActionResult agregarBeneficiario()
+        public IActionResult AgregarBeneficiario()
         {
-            return View();
+            return View("agregarBeneficiario");
         }
 
-        [Route("login")]
+        public IActionResult ListarBeneficiarios()
+        {
+            return View("indexBeneficiarios");
+        }
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("PorcentajeBeneficio,ParentescoId,ID,Nombre,FechaNacimiento,Email,DocId,Doc")] Beneficiario beneficiario)
+        {
+            var cliente = await _context.Cliente.FindAsync(HttpContext.Session.GetInt32("id"));
+            beneficiario.CuentaAhorroId = cliente.CuentaAhorro.ID;
+            beneficiario.FechaDesactivacion = DateTime.Today;
+            beneficiario.Activo = true;
+            if (ModelState.IsValid)
+            {
+                _context.Add(beneficiario);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(beneficiario);
+        }
         public IActionResult Login(string Username, string Password)
         {
             //if (_context.Cliente.Any(e => e.Username == username) && _context.Cliente.Any(e => e.Password == password)) esto es mas rapido
@@ -46,12 +58,12 @@ namespace Progra1_bases.Controllers
             var clientes = from c in _context.Cliente
                          select c;
 
-            if (!String.IsNullOrEmpty(Username))
+            if (!String.IsNullOrEmpty(Username) && !String.IsNullOrEmpty(Password))
             {
                 clientes = clientes.Where(s => s.Username.Equals(Username) && s.Password.Equals(Password));
                 if (clientes.Count() > 0)
                 {
-                    HttpContext.Session.SetString("username", Username);
+                    HttpContext.Session.SetInt32("id", clientes.ElementAt(0).ID);
                     return View("Success");
                 }
                 else
@@ -67,11 +79,9 @@ namespace Progra1_bases.Controllers
             }
         }
 
-        [Route("logout")]
-        [HttpGet]
         public IActionResult Logout()
         {
-            HttpContext.Session.Remove("username");
+            HttpContext.Session.Remove("id");
             return RedirectToAction("Index");
         }
     }
