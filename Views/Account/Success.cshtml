@@ -1,9 +1,11 @@
-﻿@{
-    Layout = null;
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Dashboard";
 }
 
-@using Microsoft.AspNetCore.Http;
-
+<h4>Dashboard</h4>
+<!--
+<hr />
 <!DOCTYPE html>
 
 <html>
@@ -14,9 +16,15 @@
 <body>
 
     <h3>Success Page</h3>
-    Welcome @Context.Session.GetString("username")
     <br>
     <a asp-controller="account" asp-action="logout">Logout</a>
 
 </body>
 </html>
+-->
+<div class="row">
+    <div class="col-md-4">
+        <a asp-controller="account" asp-action="agregarBeneficiario">Agregar beneficiario</a>
+        <br /><a asp-controller="account" asp-action="logout">Logout</a>
+    </div>
+</div>

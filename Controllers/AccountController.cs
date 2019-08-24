@@ -22,10 +22,18 @@ namespace Progra1_bases.Controllers
         [Route("~/")]
         public IActionResult Index()
         {
+            return View("Success");
             if(HttpContext.Session.GetString("username") != null)
             {
                 return View("Success");
             }
+            return View();
+        }
+
+        [Route("agregarBeneficiario")]
+        [HttpPost]
+        public IActionResult agregarBeneficiario()
+        {
             return View();
         }
 
