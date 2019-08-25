@@ -23,18 +23,22 @@ namespace Progra1_bases.Controllers
             {
                 return View("Success");
             }
-            return View("Success");
+            return View();
         }
 
         public IActionResult AgregarBeneficiario()
         {
-            return View("agregarBeneficiario");
+            return View();
         }
 
         public IActionResult ListarBeneficiarios()
         {
-            return View("indexBeneficiarios");
+            var beneficiarios = from b in _context.Beneficiario
+                           select b;
+            beneficiarios = beneficiarios.Where(s => s.CuentaAhorroId == HttpContext.Session.GetInt32("id"));
+            return View(beneficiarios);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PorcentajeBeneficio,ParentescoId,ID,Nombre,FechaNacimiento,Email,DocId,Doc")] Beneficiario beneficiario)
@@ -53,8 +57,6 @@ namespace Progra1_bases.Controllers
         }
         public IActionResult Login(string Username, string Password)
         {
-            //if (_context.Cliente.Any(e => e.Username == username) && _context.Cliente.Any(e => e.Password == password)) esto es mas rapido
-            //pero no se como hacer que revise en el mismo elemento si la contrasenia coincide
             var clientes = from c in _context.Cliente
                          select c;
 
@@ -63,7 +65,7 @@ namespace Progra1_bases.Controllers
                 clientes = clientes.Where(s => s.Username.Equals(Username) && s.Password.Equals(Password));
                 if (clientes.Count() > 0)
                 {
-                    HttpContext.Session.SetInt32("id", clientes.ElementAt(0).ID);
+                    HttpContext.Session.SetInt32("id", clientes.First().ID);
                     return View("Success");
                 }
                 else
