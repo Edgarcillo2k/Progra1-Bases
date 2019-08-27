@@ -184,3 +184,13 @@ C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Monedas\Details.g.cshtml.cs
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Monedas\Edit.g.cshtml.cs
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Monedas\Index.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\TipoCuentas\Create.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\TipoCuentas\Delete.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\TipoCuentas\Details.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\TipoCuentas\Edit.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\TipoCuentas\Index.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\CuentaAhorroes\Create.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\CuentaAhorroes\Delete.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\CuentaAhorroes\Details.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\CuentaAhorroes\Edit.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\CuentaAhorroes\Index.g.cshtml.cs

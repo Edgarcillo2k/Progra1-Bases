@@ -39,14 +39,28 @@ namespace Progra1_bases.Controllers
             return View(beneficiarios);
         }
 
+        /*
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PorcentajeBeneficio,ParentescoId,ID,Nombre,FechaNacimiento,Email,DocId,Doc")] Beneficiario beneficiario)
+        public async Task<IActionResult> AgregarBeneficiario([Bind("PorcentajeBeneficio,ParentescoId,ID,Nombre,FechaNacimiento,Email,DocId,Doc")] Beneficiario beneficiario)
         {
             var cliente = await _context.Cliente.FindAsync(HttpContext.Session.GetInt32("id"));
             beneficiario.CuentaAhorroId = cliente.CuentaAhorro.ID;
             beneficiario.FechaDesactivacion = DateTime.Today;
             beneficiario.Activo = true;
+            if (ModelState.IsValid)
+            {
+                _context.Add(beneficiario);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(beneficiario);
+        }
+        */
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AgregarBeneficiario([Bind("FechaDesactivacion,PorcentajeBeneficio,ParentescoId,Activo,CuentaAhorroId,ID,Nombre,FechaNacimiento,Email,DocId,Doc")] Beneficiario beneficiario)
+        {
             if (ModelState.IsValid)
             {
                 _context.Add(beneficiario);
