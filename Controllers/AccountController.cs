@@ -19,7 +19,7 @@ namespace Progra1_bases.Controllers
 
         public IActionResult Index()
         {
-            if(HttpContext.Session.GetString("username") != null)
+            if(HttpContext.Session.GetInt32("id") != null)
             {
                 return View("Success");
             }
