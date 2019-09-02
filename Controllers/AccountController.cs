@@ -59,6 +59,7 @@ namespace Progra1_bases.Controllers
         {
             if (!String.IsNullOrEmpty(Username) && !String.IsNullOrEmpty(Password))
             {
+                //todo esto es necesario para el sp
                 string _connectionString = "Server=tcp:serverbd01.database.windows.net,1433;Initial Catalog=bd;Persist Security Info=False;User ID=puser@serverbd01.database.windows.net;Password=Abc1234!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                 using (var con = new SqlConnection(_connectionString))
                 {
@@ -71,6 +72,7 @@ namespace Progra1_bases.Controllers
 
                         using (var reader = cmd.ExecuteReader())
                         {
+                            //si entra al if es porque encontro el dato buscado
                             if (reader.Read())
                             {
                                 HttpContext.Session.SetInt32("id", reader.GetInt32(0));
@@ -81,6 +83,7 @@ namespace Progra1_bases.Controllers
                         }
                     }
                 }
+                //hasta aqui
             }
             else
             {
