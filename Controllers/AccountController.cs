@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Progra1_bases.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Progra1_bases.Controllers
 {
@@ -35,32 +37,16 @@ namespace Progra1_bases.Controllers
         {
             var beneficiarios = from b in _context.Beneficiario
                            select b;
-            beneficiarios = beneficiarios.Where(s => s.CuentaAhorroId == HttpContext.Session.GetInt32("id"));
+            var cliente = _context.Cliente.Include(x => x.CuentaAhorro).SingleOrDefault(i => i.ID == HttpContext.Session.GetInt32("id"));
+            beneficiarios = beneficiarios.Where(s => s.CuentaAhorroId == cliente.CuentaAhorro.ID);
             return View(beneficiarios);
         }
 
-        /*
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AgregarBeneficiario([Bind("PorcentajeBeneficio,ParentescoId,ID,Nombre,FechaNacimiento,Email,DocId,Doc")] Beneficiario beneficiario)
         {
-            var cliente = await _context.Cliente.FindAsync(HttpContext.Session.GetInt32("id"));
-            beneficiario.CuentaAhorroId = cliente.CuentaAhorro.ID;
-            beneficiario.FechaDesactivacion = DateTime.Today;
-            beneficiario.Activo = true;
-            if (ModelState.IsValid)
-            {
-                _context.Add(beneficiario);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(beneficiario);
-        }
-        */
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AgregarBeneficiario([Bind("FechaDesactivacion,PorcentajeBeneficio,ParentescoId,Activo,CuentaAhorroId,ID,Nombre,FechaNacimiento,Email,DocId,Doc")] Beneficiario beneficiario)
-        {
+            var cliente = _context.Cliente.Include(x => x.CuentaAhorro).SingleOrDefault(i => i.ID == HttpContext.Session.GetInt32("id"));
             if (ModelState.IsValid)
             {
                 _context.Add(beneficiario);
@@ -71,21 +57,29 @@ namespace Progra1_bases.Controllers
         }
         public IActionResult Login(string Username, string Password)
         {
-            var clientes = from c in _context.Cliente
-                         select c;
-
             if (!String.IsNullOrEmpty(Username) && !String.IsNullOrEmpty(Password))
             {
-                clientes = clientes.Where(s => s.Username.Equals(Username) && s.Password.Equals(Password));
-                if (clientes.Count() > 0)
+                string _connectionString = "Server=tcp:serverbd01.database.windows.net,1433;Initial Catalog=bd;Persist Security Info=False;User ID=puser@serverbd01.database.windows.net;Password=Abc1234!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                using (var con = new SqlConnection(_connectionString))
                 {
-                    HttpContext.Session.SetInt32("id", clientes.First().ID);
-                    return View("Success");
-                }
-                else
-                {
-                    ViewBag.error = "Cuenta invalida";
-                    return View("Index");
+                    using (var cmd = new SqlCommand("dbo.LoginStoredProcedure", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Username", Username);
+                        cmd.Parameters.AddWithValue("@Password", Password);
+                        con.Open();
+
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                HttpContext.Session.SetInt32("id", reader.GetInt32(0));
+                                return View("Success");
+                            }
+                            ViewBag.error = "Cuenta invalida";
+                            return View("Index");
+                        }
+                    }
                 }
             }
             else
