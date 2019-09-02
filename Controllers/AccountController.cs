@@ -66,6 +66,7 @@ namespace Progra1_bases.Controllers
                     using (var cmd = new SqlCommand("dbo.LoginStoredProcedure", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
+                        //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
                         cmd.Parameters.AddWithValue("@Username", Username);
                         cmd.Parameters.AddWithValue("@Password", Password);
                         con.Open();
