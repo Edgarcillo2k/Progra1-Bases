@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,8 +17,8 @@ namespace Progra1_bases.Models
         public int MonedaId { get; set; }
         [Display(Name = "Tipo de cuenta")]
         public int TipoCuentaId { get; set; }
-        public EstadoCuenta EstadoCuenta { get; set; }
-        public Beneficiario Beneficiario { get; set; }
+        public List<EstadoCuenta> EstadoCuenta { get; set; }
+        public List<Beneficiario> Beneficiario { get; set; }
         public CuentaObjetivo CuentaObjetivo { get; set; }
         public int ClienteId { get; set; }
     }

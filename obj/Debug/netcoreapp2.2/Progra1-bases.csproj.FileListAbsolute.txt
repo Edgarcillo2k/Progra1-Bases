@@ -199,3 +199,5 @@ C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Beneficiarios\Details.g.cshtml.cs
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Beneficiarios\Edit.g.cshtml.cs
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Beneficiarios\Index.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\EditarBeneficiario.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\ListarEstadosCuenta.g.cshtml.cs

@@ -5,11 +5,6 @@ namespace Progra1_bases.Models
 {
     public class Beneficiario: Persona
     {
-        Beneficiario()
-        {
-            FechaDesactivacion = DateTime.Today;
-            Activo = true;
-        }
         [Display(Name = "Fecha de desactivacion")]
         [DataType(DataType.Date)]
         public DateTime FechaDesactivacion { get; set; }
@@ -19,5 +14,6 @@ namespace Progra1_bases.Models
         public int ParentescoId { get; set; }
         public bool Activo { get; set; }
         public int? CuentaAhorroId { get; set; }
+        public virtual CuentaAhorro CuentaAhorro { get; set; }
     }
 }
