@@ -226,7 +226,6 @@ namespace Progra1_bases.Controllers
                             ViewBag.error = "Error: El maximo de beneficiarios es de 3";
                             break;
                         default:
-                            ViewBag.error = "Error";
                             break;
                     }
                 }
