@@ -71,7 +71,8 @@ namespace Progra1_bases.Controllers
                     }
                 }
             }
-            return View();
+            ViewBag.error = "Error: No hay ningun estado de cuenta";
+            return View("Success");
         }
         public IActionResult ListarBeneficiarios()
         {
@@ -113,7 +114,8 @@ namespace Progra1_bases.Controllers
                     }
                 }
             }
-            return View();
+            ViewBag.error = "Error: No hay ningun beneficiario";
+            return View("Success");
         }
         public async Task<IActionResult> EditarBeneficiario(int? id)
         {
@@ -190,19 +192,47 @@ namespace Progra1_bases.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AgregarBeneficiario([Bind("PorcentajeBeneficio,ParentescoId,ID,Nombre,FechaNacimiento,Email,DocId,Doc")] Beneficiario beneficiario)
+        public IActionResult AgregarBeneficiario(int PorcentajeBeneficio, int ParentescoId,string Nombre,DateTime FechaNacimiento,string Email,int DocId,string Doc)
         {
             var cliente = _context.Cliente.Include(x => x.CuentaAhorro).SingleOrDefault(i => i.ID == HttpContext.Session.GetInt32("id"));
-            beneficiario.FechaDesactivacion = DateTime.Today;
-            beneficiario.Activo = true;
-            beneficiario.CuentaAhorro = cliente.CuentaAhorro;
-            if (ModelState.IsValid)
+            using (var con = new SqlConnection(_connectionString))
             {
-                _context.Add(beneficiario);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                using (var cmd = new SqlCommand("dbo.AgregarBeneficiario", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
+                    cmd.Parameters.AddWithValue("@nombre", Nombre);
+                    cmd.Parameters.AddWithValue("@fechaNacimiento", FechaNacimiento);
+                    cmd.Parameters.AddWithValue("@email", Email);
+                    cmd.Parameters.AddWithValue("@docId", DocId);
+                    cmd.Parameters.AddWithValue("@doc", Doc);
+                    cmd.Parameters.AddWithValue("@parentescoId", ParentescoId);
+                    cmd.Parameters.AddWithValue("@porcentajeBeneficio", PorcentajeBeneficio);
+                    cmd.Parameters.AddWithValue("@cuentaAhorroID", cliente.CuentaAhorro.ID);
+                    SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
+                    returnParameter.Direction = ParameterDirection.ReturnValue;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    int error = (int)returnParameter.Value;
+                    switch (error)
+                    {
+                        case -100009:
+                            ViewBag.error = "Error: Los porcentajes suman mas de 100";
+                            break;
+                        case -100010:
+                            ViewBag.error = "Error: Los porcentajes suman menos de 100";
+                            break;
+                        case -100011:
+                            ViewBag.error = "Error: El maximo de beneficiarios es de 3";
+                            break;
+                        default:
+                            ViewBag.error = "Error";
+                            break;
+                    }
+                }
             }
-            return View(beneficiario);
+            //hasta aqui
+            return View("Success");
         }
         public IActionResult Login(string Username, string Password)
         {
