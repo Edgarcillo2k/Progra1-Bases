@@ -134,57 +134,38 @@ namespace Progra1_bases.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditarBeneficiario(int id, string Nombre, int ParentescoId, DateTime FechaNacimiento,int DocId, string Doc,string Email,int PorcentajeBeneficio)
+        public IActionResult EditarBeneficiario(int id, string Nombre, int ParentescoId, DateTime FechaNacimiento,int DocId, string Doc,string Email,int PorcentajeBeneficio)
         {
-            var beneficiario = await _context.Beneficiario.FindAsync(id);
-            beneficiario.Nombre = Nombre;
-            beneficiario.ParentescoId = ParentescoId;
-            beneficiario.FechaNacimiento = FechaNacimiento;
-            beneficiario.DocId = DocId;
-            beneficiario.Doc = Doc;
-            beneficiario.Email = Email;
-            beneficiario.PorcentajeBeneficio = PorcentajeBeneficio;
-            if (ModelState.IsValid)
+            using (var con = new SqlConnection(_connectionString))
             {
-                try
+                using (var cmd = new SqlCommand("dbo.EditarBeneficiario", con))
                 {
-                    _context.Update(beneficiario);
-                    await _context.SaveChangesAsync();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    cmd.Parameters.AddWithValue("@Nombre", Nombre);
+                    cmd.Parameters.AddWithValue("@ParentescoId", ParentescoId);
+                    cmd.Parameters.AddWithValue("@FechaNacimiento", FechaNacimiento);
+                    cmd.Parameters.AddWithValue("@DocId", DocId);
+                    cmd.Parameters.AddWithValue("@Doc", Doc);
+                    cmd.Parameters.AddWithValue("@Email", Email);
+                    cmd.Parameters.AddWithValue("@PorcentajeBeneficio", PorcentajeBeneficio);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!_context.Beneficiario.Any(e => e.ID ==beneficiario.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
             }
-            return View(beneficiario);
+            return RedirectToAction(nameof(Index));
         }
-        public async Task<IActionResult> Delete(int id)
+        public IActionResult Delete(int id)
         {
-            try
+            using (var con = new SqlConnection(_connectionString))
             {
-                var beneficiario = await _context.Beneficiario.FindAsync(id);
-                beneficiario.Activo = false;
-                beneficiario.FechaDesactivacion = DateTime.Today;
-                _context.Update(beneficiario);
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!_context.Beneficiario.Any(e => e.ID == id))
+                using (var cmd = new SqlCommand("dbo.EliminarBeneficiario", con))
                 {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id",id);
+                    cmd.Parameters.AddWithValue("@FechaDesactivacion", DateTime.Today);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
                 }
             }
             return RedirectToAction(nameof(Index));

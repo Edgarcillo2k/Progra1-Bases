@@ -9,6 +9,8 @@ namespace Progra1_bases.Models
     {
         public int ID { get; set; }
         public int PersonaId { get; set; }
-        public Telefono Telefono { get; set; }
+        public virtual Persona Persona { get; set; }
+        public int TelefonoId { get; set; }
+        public virtual Telefono Telefono{get;set;}
     }
 }
