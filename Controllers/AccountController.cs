@@ -140,6 +140,7 @@ namespace Progra1_bases.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditarBeneficiario(int id, string Nombre, int ParentescoId, DateTime FechaNacimiento,int DocId, string Doc,string Email,int PorcentajeBeneficio)
         {
+            var con = [];
             using (var con = new SqlConnection(_connectionString))
             {
                 using (var cmd = new SqlCommand("dbo.EditarBeneficiario", con))
@@ -168,6 +169,20 @@ namespace Progra1_bases.Controllers
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Id",id);
                     cmd.Parameters.AddWithValue("@FechaDesactivacion", DateTime.Today);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult EliminarTelefono(int id)
+        {
+            using (var con = new SqlConnection(_connectionString))
+            {
+                using (var cmd = new SqlCommand("dbo.EliminarTelefono", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id", id);
                     con.Open();
                     cmd.ExecuteNonQuery();
                 }
@@ -229,7 +244,8 @@ namespace Progra1_bases.Controllers
                                 Telefonos.Add(new Telefono
                                 {
                                     Extension = reader.GetInt32(0),
-                                    Numero = reader.GetInt32(1)
+                                    Numero = reader.GetInt32(1),
+                                    ID = reader.GetInt32(2)
                                 });
                             }
                             return View(Telefonos);
@@ -243,7 +259,7 @@ namespace Progra1_bases.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AgregarBeneficiario(int PorcentajeBeneficio, int ParentescoId,string Nombre,DateTime FechaNacimiento,string Email,int DocId,string Doc)
+        public IActionResult AgregarBeneficiario(int PorcentajeBeneficio, int ParentescoId,string Nombre,DateTime FechaNacimiento,string Email,int DocId,string Doc,int Extension1, int Extension2, int Numero1, int Numero2)
         {
             var cliente = _context.Cliente.Include(x => x.CuentaAhorro).SingleOrDefault(i => i.ID == HttpContext.Session.GetInt32("id"));
             using (var con = new SqlConnection(_connectionString))
@@ -277,6 +293,9 @@ namespace Progra1_bases.Controllers
                             ViewBag.error = "Error: El maximo de beneficiarios es de 3";
                             break;
                         default:
+                            AgregarTelefono(Extension1,Numero1,error);
+                            AgregarTelefono(Extension2, Numero2, error);
+                            ViewBag.error = "Beneficiario agregado con exito";
                             break;
                     }
                 }
