@@ -33,6 +33,10 @@ namespace Progra1_bases.Controllers
         {
             return View();
         }
+        public IActionResult AgregarTelefono(int? id)
+        {
+            return View();
+        }
         public IActionResult ListarEstadosCuenta()
         {
             var cliente = _context.Cliente.Include(x => x.CuentaAhorro).SingleOrDefault(i => i.ID == HttpContext.Session.GetInt32("id"));
@@ -169,6 +173,72 @@ namespace Progra1_bases.Controllers
                 }
             }
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AgregarTelefono(int extension,int numero,int id)
+        {
+            using (var con = new SqlConnection(_connectionString))
+            {
+                using (var cmd = new SqlCommand("dbo.AgregarTelefono", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
+                    cmd.Parameters.AddWithValue("@Id",id);
+                    cmd.Parameters.AddWithValue("@Numero", numero);
+                    cmd.Parameters.AddWithValue("@Extension", extension);
+                    SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
+                    returnParameter.Direction = ParameterDirection.ReturnValue;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    int error = (int)returnParameter.Value;
+                    if(error == -100012)
+                    {
+                        ViewBag.error = "El telefono ya habia sido agregado";
+                    }
+                    else
+                    {
+                        ViewBag.error = "Telefono agregado con exito";
+                    }
+                }
+            }
+            //hasta aqui
+            return View("Success");
+        }
+
+        public IActionResult ListarTelefonos(int id)
+        {
+            using (var con = new SqlConnection(_connectionString))
+            {
+                using (var cmd = new SqlCommand("dbo.ListarTelefonos", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            List < Telefono> Telefonos = new List<Telefono>();
+                            //si entra al if es porque encontro el dato buscado
+                            while (reader.Read())
+                            {
+                                Telefonos.Add(new Telefono
+                                {
+                                    Extension = reader.GetInt32(0),
+                                    Numero = reader.GetInt32(1)
+                                });
+                            }
+                            return View(Telefonos);
+                        }
+                    }
+                }
+            }
+            ViewBag.error = "Error: El beneficiario no tiene ningun telefono";
+            return View("Success");
         }
 
         [HttpPost]

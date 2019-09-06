@@ -46,6 +46,7 @@
                 @Html.DisplayFor(modelItem => item.Doc)
             </td>
             <td>
+                <a asp-action="AgregarTelefono" asp-route-id="@item.ID">Agregar telefono</a> |
                 <a asp-action="ListarTelefonos" asp-route-id="@item.ID">Ver telefonos</a> |
                 <a asp-action="EditarBeneficiario" asp-route-id="@item.ID">Editar</a> |
                 <a asp-action="Delete" asp-route-id="@item.ID">Eliminar</a>

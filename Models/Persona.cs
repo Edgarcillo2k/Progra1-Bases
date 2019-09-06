@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace Progra1_bases.Models
 {
@@ -22,6 +23,6 @@ namespace Progra1_bases.Models
         [Display(Name = "Documento de identidad")]
         [StringLength(20)]
         public string Doc { get; set; }
-        public PersonaPorTelefono PersonaPorTelefono { get; set; }
+        public List<PersonaPorTelefono> PersonaPorTelefono { get; set; }
     }
 }
