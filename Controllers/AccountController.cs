@@ -140,7 +140,6 @@ namespace Progra1_bases.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditarBeneficiario(int id, string Nombre, int ParentescoId, DateTime FechaNacimiento,int DocId, string Doc,string Email,int PorcentajeBeneficio)
         {
-            var con = [];
             using (var con = new SqlConnection(_connectionString))
             {
                 using (var cmd = new SqlCommand("dbo.EditarBeneficiario", con))
@@ -154,11 +153,25 @@ namespace Progra1_bases.Controllers
                     cmd.Parameters.AddWithValue("@Doc", Doc);
                     cmd.Parameters.AddWithValue("@Email", Email);
                     cmd.Parameters.AddWithValue("@PorcentajeBeneficio", PorcentajeBeneficio);
+                    SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
+                    returnParameter.Direction = ParameterDirection.ReturnValue;
                     con.Open();
                     cmd.ExecuteNonQuery();
+                    int error = (int)returnParameter.Value;
+                    switch (error)
+                    {
+                        case -100009:
+                            ViewBag.error = "Error: Los porcentajes suman mas de 100";
+                            break;
+                        case -100010:
+                            ViewBag.error = "Error: Los porcentajes suman menos de 100";
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
-            return RedirectToAction(nameof(Index));
+            return View("Success");
         }
         public IActionResult Delete(int id)
         {
