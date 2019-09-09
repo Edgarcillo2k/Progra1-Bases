@@ -39,14 +39,13 @@ namespace Progra1_bases.Controllers
         }
         public IActionResult ListarEstadosCuenta()
         {
-            var cliente = _context.Cliente.Include(x => x.CuentaAhorro).SingleOrDefault(i => i.ID == HttpContext.Session.GetInt32("id"));
             using (var con = new SqlConnection(_connectionString))
             {
                 using (var cmd = new SqlCommand("dbo.ConsultarEstadosCuenta", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
-                    cmd.Parameters.AddWithValue("@Id", cliente.CuentaAhorro.ID);
+                    cmd.Parameters.AddWithValue("@Id", HttpContext.Session.GetInt32("id"));
                     con.Open();
 
                     using (var reader = cmd.ExecuteReader())
@@ -80,14 +79,13 @@ namespace Progra1_bases.Controllers
         }
         public IActionResult ListarBeneficiarios()
         {
-            var cliente = _context.Cliente.Include(x => x.CuentaAhorro).SingleOrDefault(i => i.ID == HttpContext.Session.GetInt32("id"));
             using (var con = new SqlConnection(_connectionString))
             {
                 using (var cmd = new SqlCommand("dbo.ListarBeneficiarios", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
-                    cmd.Parameters.AddWithValue("@Id", cliente.CuentaAhorro.ID);
+                    cmd.Parameters.AddWithValue("@Id", HttpContext.Session.GetInt32("id"));
                     con.Open();
 
                     using (var reader = cmd.ExecuteReader())
@@ -106,11 +104,11 @@ namespace Progra1_bases.Controllers
                                     Email = reader.GetString(3),
                                     DocId = reader.GetInt32(4),
                                     Doc = reader.GetString(5),
-                                    FechaDesactivacion = reader.GetDateTime(7),
-                                    PorcentajeBeneficio = reader.GetInt32(8),
-                                    ParentescoId = reader.GetInt32(9),
-                                    Activo = reader.GetBoolean(10),
-                                    CuentaAhorroId = reader.GetInt32(11)
+                                    FechaDesactivacion = reader.GetDateTime(6),
+                                    PorcentajeBeneficio = reader.GetInt32(7),
+                                    ParentescoId = reader.GetInt32(8),
+                                    Activo = reader.GetBoolean(9),
+                                    CuentaAhorroId = reader.GetInt32(10)
                                 });
                             }
                             return View(beneficiarios);
@@ -274,7 +272,6 @@ namespace Progra1_bases.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult AgregarBeneficiario(int PorcentajeBeneficio, int ParentescoId,string Nombre,DateTime FechaNacimiento,string Email,int DocId,string Doc,int Extension1, int Extension2, int Numero1, int Numero2)
         {
-            var cliente = _context.Cliente.Include(x => x.CuentaAhorro).SingleOrDefault(i => i.ID == HttpContext.Session.GetInt32("id"));
             using (var con = new SqlConnection(_connectionString))
             {
                 using (var cmd = new SqlCommand("dbo.AgregarBeneficiario", con))
@@ -288,7 +285,7 @@ namespace Progra1_bases.Controllers
                     cmd.Parameters.AddWithValue("@doc", Doc);
                     cmd.Parameters.AddWithValue("@parentescoId", ParentescoId);
                     cmd.Parameters.AddWithValue("@porcentajeBeneficio", PorcentajeBeneficio);
-                    cmd.Parameters.AddWithValue("@cuentaAhorroID", cliente.CuentaAhorro.ID);
+                    cmd.Parameters.AddWithValue("@clienteId",HttpContext.Session.GetInt32("id"));
                     SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
                     returnParameter.Direction = ParameterDirection.ReturnValue;
                     con.Open();
