@@ -13,6 +13,7 @@ namespace Progra1_bases.Models
         public int CuentaAhorroId { get; set; }
         [Display(Name = "Fecha de inicio")]
         [DataType(DataType.Date)]
+        public string NumCuenta { get; set; }
         public DateTime FechaInicio { get; set; }
         [Display(Name = "Fecha de finalizacion")]
         [DataType(DataType.Date)]
@@ -32,5 +33,6 @@ namespace Progra1_bases.Models
         public decimal SaldoMinimo { get; set; }
         public List<Movimiento> Movimientos { get; set; }
         public virtual CuentaAhorro CuentaAhorro { get; set; }
+        public int Intereses { get; set; }
     }
 }

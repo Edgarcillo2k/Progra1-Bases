@@ -18,5 +18,6 @@ namespace Progra1_bases.Models
         public bool Activo { get; set; }
         public int? CuentaAhorroId { get; set; }
         public virtual CuentaAhorro CuentaAhorro { get; set; }
+        public string NumCuenta { get; set; }
     }
 }

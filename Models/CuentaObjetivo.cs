@@ -20,5 +20,6 @@ namespace Progra1_bases.Models
         public decimal Monto { get; set; }
         public string Nombre { get; set; }
         public int CuentaAhorroId { get; set; }
+        public string NumCuenta { get; set; }
     }
 }

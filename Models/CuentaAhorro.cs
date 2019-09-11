@@ -21,5 +21,6 @@ namespace Progra1_bases.Models
         public List<Beneficiario> Beneficiario { get; set; }
         public CuentaObjetivo CuentaObjetivo { get; set; }
         public int ClienteId { get; set; }
+        public string NumCuenta { get; set; }
     }
 }

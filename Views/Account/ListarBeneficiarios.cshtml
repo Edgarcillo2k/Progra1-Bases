@@ -6,52 +6,67 @@
 
 <h1>Beneficiarios</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PorcentajeBeneficio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaNacimiento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Doc)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PorcentajeBeneficio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaNacimiento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Doc)
-            </td>
-            <td>
-                <a asp-action="AgregarTelefono" asp-route-id="@item.ID">Agregar telefono</a> |
-                <a asp-action="ListarTelefonos" asp-route-id="@item.ID">Ver telefonos</a> |
-                <a asp-action="EditarBeneficiario" asp-route-id="@item.ID">Editar</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Eliminar</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<form method="post" asp-controller="account" asp-action="ActualizarPorcentajes">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PorcentajeBeneficio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaNacimiento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Doc)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var contador = 0;
+                var nombre = "Porcentaje";
+                var id = "Id";
+            }
+            @foreach (var item in Model)
+            {
+                var nombreActual = nombre + contador.ToString();
+                var idActual = id + contador.ToString();
+                contador++;
+                <tr>
+                    <td>
+                        <input class="form-control" type="text" name="@nombreActual" value="@Html.DisplayFor(modelItem=>item.PorcentajeBeneficio)" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Doc)
+                    </td>
+                    <td>
+                        <a asp-action="AgregarTelefono" asp-route-id="@item.ID">Agregar telefono</a> |
+                        <a asp-action="ListarTelefonos" asp-route-id="@item.ID">Ver telefonos</a> |
+                        <a asp-action="EditarBeneficiario" asp-route-id="@item.ID">Editar</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Eliminar</a>
+                        <input type="hidden" value="@item.ID" name="@idActual" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary"/>
+    </div>
+</form>

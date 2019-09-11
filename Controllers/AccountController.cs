@@ -22,7 +22,7 @@ namespace Progra1_bases.Controllers
 
         public IActionResult Index()
         {
-            if(HttpContext.Session.GetInt32("id") != null)
+            if (HttpContext.Session.GetInt32("id") != null)
             {
                 return View("Success");
             }
@@ -75,6 +75,36 @@ namespace Progra1_bases.Controllers
                 }
             }
             ViewBag.error = "Error: No hay ningun estado de cuenta";
+            return View("Success");
+        }
+        public IActionResult ActualizarPorcentajes(int Id0,int Id1, int Id2,int Porcentaje0, int Porcentaje1 = -1, int Porcentaje2 = -1)
+        {
+            Porcentaje1 = Porcentaje1>0?Porcentaje1: 0;
+            Porcentaje2 = Porcentaje2 > 0 ? Porcentaje2 : 0;
+            if((Porcentaje0 + Porcentaje1 + Porcentaje2) == 100)
+            {
+                using (var con = new SqlConnection(_connectionString))
+                {
+                    using (var cmd = new SqlCommand("dbo.ActualizarPorcentajeBeneficio", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
+                        cmd.Parameters.AddWithValue("@IdBeneficiario1",Id0 );
+                        cmd.Parameters.AddWithValue("@porcentajeBenef1",Porcentaje0 );
+                        cmd.Parameters.AddWithValue("@IdBeneficiario2", Id1);
+                        cmd.Parameters.AddWithValue("@porcentajeBenef2", Porcentaje1);
+                        cmd.Parameters.AddWithValue("@IdBeneficiario3", Id2);
+                        cmd.Parameters.AddWithValue("@porcentajeBenef3", Porcentaje2);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        ViewBag.error = "Porcentajes actualizados con exito";
+                    }
+                }
+            }
+            else
+            {
+                ViewBag.error = "Los porcentajes de beneficio no suman 100";
+            }
             return View("Success");
         }
         public IActionResult ListarBeneficiarios()
@@ -136,7 +166,7 @@ namespace Progra1_bases.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditarBeneficiario(int id, string Nombre, int ParentescoId, DateTime FechaNacimiento,int DocId, string Doc,string Email,int PorcentajeBeneficio)
+        public IActionResult EditarBeneficiario(int id, string Nombre, int ParentescoId, DateTime FechaNacimiento,int DocId, string Doc,string Email)
         {
             using (var con = new SqlConnection(_connectionString))
             {
@@ -150,7 +180,6 @@ namespace Progra1_bases.Controllers
                     cmd.Parameters.AddWithValue("@DocId", DocId);
                     cmd.Parameters.AddWithValue("@Doc", Doc);
                     cmd.Parameters.AddWithValue("@Email", Email);
-                    cmd.Parameters.AddWithValue("@PorcentajeBeneficio", PorcentajeBeneficio);
                     SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
                     returnParameter.Direction = ParameterDirection.ReturnValue;
                     con.Open();
