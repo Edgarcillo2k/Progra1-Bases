@@ -1,4 +1,4 @@
-﻿@model Progra1_bases.Models.Beneficiario
+@model Progra1_bases.Models.Beneficiario
 
 @{
     ViewData["Title"] = "Agregar beneficiario";
@@ -43,13 +43,17 @@
     </div>
         -->
             <div class="form-group">
+
+                <!--Html.DropDownList("documentos",(List<SelectListItem>)ViewBag.documentos)-->
+
+                
                 <label asp-for="ParentescoId" class="control-label"></label>
-                <input asp-for="ParentescoId" class="form-control" />
+                <select asp-for="ParentescoId" asp-items="@((List<SelectListItem>)(ViewBag.parentescos))"></select>
                 <span asp-validation-for="ParentescoId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DocId" class="control-label"></label>
-                <input asp-for="DocId" class="form-control" />
+                <select asp-for="DocId" asp-items="@((List<SelectListItem>)(ViewBag.documentos))"></select>
                 <span asp-validation-for="DocId" class="text-danger"></span>
             </div>
             <div class="form-group">

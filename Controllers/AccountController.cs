@@ -8,6 +8,7 @@ using Progra1_bases.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Data.SqlClient;
 using System.Data;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Progra1_bases.Controllers
 {
@@ -31,12 +32,88 @@ namespace Progra1_bases.Controllers
 
         public IActionResult AgregarBeneficiario()
         {
+           
+            ViewBag.documentos = ListarDocumentos();
+            ViewBag.parentescos = ListarParentescos();
+            
             return View();
         }
         public IActionResult AgregarTelefono(int? id)
         {
             return View();
         }
+
+        public IList<SelectListItem> ListarDocumentos()
+        {
+            using (var con = new SqlConnection(_connectionString))
+            {
+                using (var cmd = new SqlCommand("dbo.ListarDocumentos", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            List<SelectListItem> documentos = new List<SelectListItem>();
+                            //si entra al if es porque encontro el dato buscado
+                            while (reader.Read())
+                            {
+                                int Id = reader.GetInt32(0);
+                                documentos.Add(new SelectListItem
+                                {
+                                    Value = Id.ToString(),
+                                    Text = reader.GetString(1),
+                                    
+                                });
+                            }
+                            return documentos;
+                        }
+                    }
+                }
+            }
+            ViewBag.error = "Error: No hay ningun Doc";
+            return new List<SelectListItem>();
+        }
+
+        public IList<SelectListItem> ListarParentescos()
+        {
+            using (var con = new SqlConnection(_connectionString))
+            {
+                using (var cmd = new SqlCommand("dbo.ListarParentesco", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            List<SelectListItem> parentescos = new List<SelectListItem>();
+                            //si entra al if es porque encontro el dato buscado
+                            while (reader.Read())
+                            {
+                                int Id = reader.GetInt32(0);
+                                parentescos.Add(new SelectListItem
+                                {
+                                    
+                                    Value = Id.ToString(),
+                                    Text = reader.GetString(2),
+                                });
+                            }
+                            return parentescos;
+                        }
+                    }
+                }
+            }
+            ViewBag.error = "Error: No hay ningun Parentesco";
+            return new List<SelectListItem>();
+        }
+
+
         public IActionResult ListarEstadosCuenta()
         {
             using (var con = new SqlConnection(_connectionString))
@@ -161,6 +238,8 @@ namespace Progra1_bases.Controllers
             {
                 return NotFound();
             }
+            ViewBag.documentos = ListarDocumentos();
+            ViewBag.parentescos = ListarParentescos();
             return View(beneficiario);
         }
 
