@@ -272,6 +272,9 @@ namespace Progra1_bases.Controllers
                         case -100010:
                             ViewBag.error = "Error: Los porcentajes suman menos de 100";
                             break;
+                        case -100012:
+                            ViewBag.error = "Error: El documento de identidad insertado ya esta en uso";
+                            break;
                         default:
                             break;
                     }
@@ -409,6 +412,9 @@ namespace Progra1_bases.Controllers
                             break;
                         case -100011:
                             ViewBag.error = "Error: El maximo de beneficiarios es de 3";
+                            break;
+                        case -100012:
+                            ViewBag.error = "Error: El documento de identidad insertado ya esta en uso";
                             break;
                         default:
                             AgregarTelefono(Extension1,Numero1,error);
