@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Progra1_bases.Models;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Progra1_bases
 {
@@ -65,6 +67,26 @@ namespace Progra1_bases
                     name: "default",
                     template: "{controller=Account}/{action=Index}/{id?}");
             });
+            CargaXml("dbo.Script_TipoCuenta");
+            CargaXml("dbo.Script_Parentesco");
+            CargaXml("dbo.Script_Moneda");
+            CargaXml("dbo.Script_Doc");
+            CargaXml("dbo.Script_Cliente");
+            CargaXml("dbo.Script_CuentaAhorro");
+            CargaXml("dbo.Script_Beneficiario");
+            CargaXml("dbo.Script_EstadosCuenta");
+        }
+        public void CargaXml(string sp)
+        {
+            using (var con = new SqlConnection("Server=tcp:serverbd01.database.windows.net,1433;Initial Catalog=bd;Persist Security Info=False;User ID=puser@serverbd01.database.windows.net;Password=Abc1234!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            {
+                using (var cmd = new SqlCommand(sp, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

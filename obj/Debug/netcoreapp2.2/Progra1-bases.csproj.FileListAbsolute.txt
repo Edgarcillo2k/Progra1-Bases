@@ -125,11 +125,6 @@ C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Progra1-bases.csproj.CopyComplete
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\Index.g.cshtml.cs
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\Success.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Clientes\Create.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Clientes\Delete.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Clientes\Details.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Clientes\Edit.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Clientes\Index.g.cshtml.cs
 C:\Users\Edgar\Desktop\No importante\Progra1-bases\bin\Debug\netcoreapp2.2\Progra1-bases.deps.json
 C:\Users\Edgar\Desktop\No importante\Progra1-bases\bin\Debug\netcoreapp2.2\Progra1-bases.runtimeconfig.json
 C:\Users\Edgar\Desktop\No importante\Progra1-bases\bin\Debug\netcoreapp2.2\Progra1-bases.runtimeconfig.dev.json
@@ -168,37 +163,7 @@ C:\Users\Edgar\Desktop\No importante\Progra1-bases\obj\Debug\netcoreapp2.2\Progr
 C:\Users\Edgar\Desktop\No importante\Progra1-bases\obj\Debug\netcoreapp2.2\Progra1-bases.pdb
 C:\Users\Edgar\Desktop\No importante\Progra1-bases\obj\Debug\netcoreapp2.2\Progra1-bases.csproj.CopyComplete
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\agregarBeneficiario.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Parentescoes\Create.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Parentescoes\Delete.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Parentescoes\Details.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Parentescoes\Edit.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Parentescoes\Index.g.cshtml.cs
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\ListarBeneficiarios.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Docs\Create.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Docs\Delete.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Docs\Details.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Docs\Edit.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Docs\Index.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Monedas\Create.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Monedas\Delete.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Monedas\Details.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Monedas\Edit.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Monedas\Index.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\TipoCuentas\Create.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\TipoCuentas\Delete.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\TipoCuentas\Details.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\TipoCuentas\Edit.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\TipoCuentas\Index.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\CuentaAhorroes\Create.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\CuentaAhorroes\Delete.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\CuentaAhorroes\Details.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\CuentaAhorroes\Edit.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\CuentaAhorroes\Index.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Beneficiarios\Create.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Beneficiarios\Delete.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Beneficiarios\Details.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Beneficiarios\Edit.g.cshtml.cs
-C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Beneficiarios\Index.g.cshtml.cs
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\EditarBeneficiario.g.cshtml.cs
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\ListarEstadosCuenta.g.cshtml.cs
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\AgregarTelefono.g.cshtml.cs
