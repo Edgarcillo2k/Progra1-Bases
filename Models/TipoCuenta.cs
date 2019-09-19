@@ -22,5 +22,7 @@ namespace Progra1_bases.Models
         public decimal MultaRetiroCajeroHumanoExceso { get; set; }
         public int TasaInteres { get; set; }
         public List<CuentaAhorro> Cuentas { get; set; }
+        [Display(Name = "Moneda")]
+        public int MonedaId { get; set; }
     }
 }

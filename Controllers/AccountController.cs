@@ -291,11 +291,18 @@ namespace Progra1_bases.Controllers
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Id",id);
                     cmd.Parameters.AddWithValue("@FechaDesactivacion", DateTime.Today);
+                    SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
+                    returnParameter.Direction = ParameterDirection.ReturnValue;
                     con.Open();
                     cmd.ExecuteNonQuery();
+                    int error = (int)returnParameter.Value;
+                    if (error == -100010)
+                    {
+                        ViewBag.error = "Los porcentajes de beneficio no suman 100";
+                    }
                 }
             }
-            return RedirectToAction(nameof(Index));
+            return View("Success");
         }
         public IActionResult EliminarTelefono(int id)
         {

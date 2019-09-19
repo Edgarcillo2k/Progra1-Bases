@@ -13,8 +13,6 @@ namespace Progra1_bases.Models
         [Display(Name = "Fecha de apertura")]
         [DataType(DataType.Date)]
         public DateTime FechaApertura { get; set; }
-        [Display(Name = "Moneda")]
-        public int MonedaId { get; set; }
         [Display(Name = "Tipo de cuenta")]
         public int TipoCuentaId { get; set; }
         public List<EstadoCuenta> EstadoCuenta { get; set; }
