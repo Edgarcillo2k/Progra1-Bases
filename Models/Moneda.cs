@@ -10,6 +10,6 @@ namespace Progra1_bases.Models
         public int ID { get; set; }
         public string Nombre { get; set; }
         public string Simbolo { get; set; }
-        public List<CuentaAhorro> Cuentas { get; set; }
+        public List<TipoCuenta> TipoCuentas { get; set; }
     }
 }

@@ -17,5 +17,6 @@ namespace Progra1_bases.Models
         public string Detalle { get; set; }
         public int EstadoCuentaId { get; set; }
         public int TipoMovimientoId { get; set; }
+        public virtual string TipoMovimiento { get; set; }
     }
 }

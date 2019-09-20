@@ -386,6 +386,43 @@ namespace Progra1_bases.Controllers
             return View("Success");
         }
 
+        public IActionResult ListarMovimientos(int id,string Filtro)
+        {
+            using (var con = new SqlConnection(_connectionString))
+            {
+                using (var cmd = new SqlCommand("dbo.ListarMovimientos", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    cmd.Parameters.AddWithValue("@substring", Filtro);
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            List<Movimiento> Movimientos = new List<Movimiento>();
+                            //si entra al if es porque encontro el dato buscado
+                            while (reader.Read())
+                            {
+                                Movimientos.Add(new Movimiento
+                                {
+                                    TipoMovimiento = reader.GetString(0),
+                                    Detalle = reader.GetString(1),
+                                    Fecha = reader.GetDateTime(2),
+                                    Monto = reader.GetDecimal(3)
+                                });
+                            }
+                            return View(Movimientos);
+                        }
+                    }
+                }
+            }
+            ViewBag.error = "No se encontro ningun movimiento";
+            return View("Success");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult AgregarBeneficiario(int PorcentajeBeneficio, int ParentescoId,string Nombre,DateTime FechaNacimiento,string Email,int DocId,string Doc,int Extension1, int Extension2, int Numero1, int Numero2)

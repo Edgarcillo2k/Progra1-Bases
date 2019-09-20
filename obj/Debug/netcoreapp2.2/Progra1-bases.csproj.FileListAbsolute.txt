@@ -169,3 +169,4 @@ C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\AgregarTelefono.g.cshtml.cs
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\ListarTelefonos.g.cshtml.cs
 C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\EditarTelefono.g.cshtml.cs
+C:\Users\Edgar\Desktop\Importante\TEC\IV SEMESTRE\BASES DE DATOS I\Progra1-Bases\Progra1-Bases\Progra1-bases\obj\Debug\netcoreapp2.2\Razor\Views\Account\ListarMovimientos.g.cshtml.cs

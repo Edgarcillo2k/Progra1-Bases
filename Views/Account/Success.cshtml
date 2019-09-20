@@ -11,5 +11,14 @@
         <br /><a asp-controller="Account" asp-action="ListarBeneficiarios">Listar beneficiarios</a>
         <br /><a asp-controller="Account" asp-action="ListarEstadosCuenta">Consultar estados de cuenta</a>
         <br /><a asp-controller="Account" asp-action="Logout">Logout</a>
+        <form method="post" asp-controller="account" asp-action="ListarMovimientos">
+            <div class="form-group">
+                <label class="control-label">Buscar movimiento por filtro</label>
+                <input class="form-control" type="text" name="Filtro" placeholder="Palabra para filtrar" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Buscar" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
 </div>
