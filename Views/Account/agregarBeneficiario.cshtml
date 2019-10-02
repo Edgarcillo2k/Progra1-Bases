@@ -32,21 +32,9 @@
                 <input asp-for="PorcentajeBeneficio" class="form-control" />
                 <span asp-validation-for="PorcentajeBeneficio" class="text-danger"></span>
             </div>
-            <!--
-    <div class="form-group">
-        <label asp-for="ParentescoId" class="control-label"></label>
-        <select asp-for="ParentescoId" class="form-control" asp-items=ViewBag.ParentescoId></select>
-    </div>
-    <div class="form-group">
-        <label asp-for="DocId" class="control-label"></label>
-        <select asp-for="DocId" class="form-control" asp-items="ViewBag.DocId"></select>
-    </div>
-        -->
+           
             <div class="form-group">
-
-                <!--Html.DropDownList("documentos",(List<SelectListItem>)ViewBag.documentos)-->
-
-                
+     
                 <label asp-for="ParentescoId" class="control-label"></label>
                 <select asp-for="ParentescoId" asp-items="@((List<SelectListItem>)(ViewBag.parentescos))"></select>
                 <span asp-validation-for="ParentescoId" class="text-danger"></span>

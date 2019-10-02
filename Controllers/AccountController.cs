@@ -38,6 +38,12 @@ namespace Progra1_bases.Controllers
             
             return View();
         }
+
+        public IActionResult AgregarCuentaObjetivo() {
+            return View();
+        }
+
+
         public IActionResult AgregarTelefono(int? id)
         {
             return View();
@@ -226,6 +232,51 @@ namespace Progra1_bases.Controllers
             ViewBag.error = "Error: No hay ningun beneficiario";
             return View("Success");
         }
+
+
+        public IActionResult ListarCuentasObjetivo()
+        {
+            
+            using (var con = new SqlConnection(_connectionString))
+            {
+                using (var cmd = new SqlCommand("dbo.ListarCuentasObjetivo", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
+                    cmd.Parameters.AddWithValue("@Id", HttpContext.Session.GetInt32("id"));
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            List<CuentaObjetivo> cuentasObjetivo = new List<CuentaObjetivo>();
+                            //si entra al if es porque encontro el dato buscado
+                            while (reader.Read())
+                            {
+                                cuentasObjetivo.Add(new CuentaObjetivo
+                                {
+                                    ID = reader.GetInt32(0),
+                                    Nombre = reader.GetString(1),
+                                    Descripcion = reader.GetString(2),
+                                    FechaInicio = reader.GetDateTime(3),
+                                    FechaFinalizacion = reader.GetDateTime(4),
+                                    Monto = reader.GetDecimal(5),
+                                    Saldo = reader.GetDecimal(6),
+                                    NumCuenta = reader.GetString(7),
+                                    CuentaAhorroId = reader.GetInt32(8)
+                                }); 
+                            }
+                            return View(cuentasObjetivo);
+                        }
+                    }
+                }
+            }
+            ViewBag.error = "Error: No hay ninguna cuenta objetivo registrada";
+            return View("Success");
+        }
+
+
         public async Task<IActionResult> EditarBeneficiario(int? id)
         {
             if (id == null)
@@ -241,6 +292,21 @@ namespace Progra1_bases.Controllers
             ViewBag.documentos = ListarDocumentos();
             ViewBag.parentescos = ListarParentescos();
             return View(beneficiario);
+        }
+        public async Task<IActionResult> EditarCuentaObjetivo(int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var cuentaObjetivo = await _context.CuentaObjetivo.FindAsync(id);
+            if (cuentaObjetivo == null)
+            {
+                return NotFound();
+            }
+            return View(cuentaObjetivo);
         }
 
         [HttpPost]
@@ -282,6 +348,39 @@ namespace Progra1_bases.Controllers
             }
             return View("Success");
         }
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditarCuentaObjetivo(int ID,string nombre, string descripcion, int monto)
+        {
+            using (var con = new SqlConnection(_connectionString))
+            {
+                using (var cmd = new SqlCommand("dbo.EditarCuentaObjetivo", con))
+                {
+                    
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id", HttpContext.Session.GetInt32("id"));
+                    cmd.Parameters.AddWithValue("@idCuentaObjetivo", ID);
+                    cmd.Parameters.AddWithValue("@nombre", nombre);
+                    cmd.Parameters.AddWithValue("@descripcion", descripcion);
+                    cmd.Parameters.AddWithValue("@monto", monto);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            ViewBag.error = "Cuenta Objetivo: " + nombre + " Modificada";
+            return View("Success");
+        }
+
+
+
+
+
+
+
         public IActionResult Delete(int id)
         {
             using (var con = new SqlConnection(_connectionString))
@@ -302,6 +401,21 @@ namespace Progra1_bases.Controllers
                     }
                 }
             }
+            return View("Success");
+        }
+        public IActionResult DesactivarCuentaObjetivo(int nombre)
+        {
+            using (var con = new SqlConnection(_connectionString))
+            {
+                using (var cmd = new SqlCommand("dbo.DesactivarCuentaObjetivo", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id", HttpContext.Session.GetInt32("id"));
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            ViewBag.error = "Cuenta Objetivo Desactivada";
             return View("Success");
         }
         public IActionResult EliminarTelefono(int id)
@@ -471,6 +585,34 @@ namespace Progra1_bases.Controllers
             //hasta aqui
             return View("Success");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AgregarCuentaObjetivo(String nombre, String descripcion, int monto, DateTime fechaFinalizacion)
+        {
+            using (var con = new SqlConnection(_connectionString))
+            {
+                using (var cmd = new SqlCommand("dbo.AgregarCuentaObjetivo", con))
+                {
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
+                    cmd.Parameters.AddWithValue("@clienteId", HttpContext.Session.GetInt32("id"));
+                    cmd.Parameters.AddWithValue("@nombre", nombre);
+                    cmd.Parameters.AddWithValue("@descripcion", descripcion);
+                    cmd.Parameters.AddWithValue("@monto", monto);
+                    cmd.Parameters.AddWithValue("@fechaFinalizacion", fechaFinalizacion);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            //hasta aqui
+
+            ViewBag.error = "Cuenta Objetivo Registrada";
+            return View("Success");
+        }
+
+
         public IActionResult Login(string Username, string Password)
         {
             if (!String.IsNullOrEmpty(Username) && !String.IsNullOrEmpty(Password))

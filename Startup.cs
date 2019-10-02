@@ -67,6 +67,7 @@ namespace Progra1_bases
                     name: "default",
                     template: "{controller=Account}/{action=Index}/{id?}");
             });
+            /*
             CargaXml("dbo.Script_TipoCuenta");
             CargaXml("dbo.Script_Parentesco");
             CargaXml("dbo.Script_Moneda");
@@ -75,6 +76,7 @@ namespace Progra1_bases
             CargaXml("dbo.Script_CuentaAhorro");
             CargaXml("dbo.Script_Beneficiario");
             CargaXml("dbo.Script_EstadosCuenta");
+            */
         }
         public void CargaXml(string sp)
         {

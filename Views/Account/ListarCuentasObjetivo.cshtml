@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Progra1_bases.Models.CuentaObjetivo>
+
+@{
+    ViewData["Title"] = "Cuentas Objetivo";
+}
+
+<h1>Cuentas Objetivo</h1>
+
+<row>
+    <form method="post" asp-controller="account" asp-action="ActualizarPorcentajes">
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FechaInicio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FechaFinalizacion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Monto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Saldo)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaInicio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaFinalizacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Monto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Saldo)
+                    </td>
+                    <td>
+                        <a asp-action="EditarCuentaObjetivo" asp-route-id="@item.ID"> Modificar   </a> |
+                        <a asp-action="DesactivarCuentaObjetivo" asp-route-id="@item.ID "> Desactivar  </a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+    </form>
+    <div>
+        <a asp-action="Index">Back to dashboard</a>
+    </div>
+</row>

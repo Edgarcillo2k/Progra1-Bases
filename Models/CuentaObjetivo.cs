@@ -21,5 +21,7 @@ namespace Progra1_bases.Models
         public string Nombre { get; set; }
         public int CuentaAhorroId { get; set; }
         public string NumCuenta { get; set; }
+        public string Descripcion { get; set; }
+        public int Desactivada { get; set; }
     }
 }
