@@ -353,7 +353,7 @@ namespace Progra1_bases.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditarCuentaObjetivo(int ID,string nombre, string descripcion, int monto)
+        public IActionResult EditarCuentaObjetivo(int ID,string nombre, string descripcion)
         {
             using (var con = new SqlConnection(_connectionString))
             {
@@ -366,7 +366,6 @@ namespace Progra1_bases.Controllers
                     cmd.Parameters.AddWithValue("@idCuentaObjetivo", ID);
                     cmd.Parameters.AddWithValue("@nombre", nombre);
                     cmd.Parameters.AddWithValue("@descripcion", descripcion);
-                    cmd.Parameters.AddWithValue("@monto", monto);
                     con.Open();
                     cmd.ExecuteNonQuery();
                 }
