@@ -16,8 +16,8 @@ namespace Progra1_bases.Models
         [Display(Name = "Tipo de cuenta")]
         public int TipoCuentaId { get; set; }
         public List<EstadoCuenta> EstadoCuenta { get; set; }
-        public List<Beneficiario> Beneficiario { get; set; }
-        public CuentaObjetivo CuentaObjetivo { get; set; }
+        public List<BeneficiarioPorCuenta> BeneficiarioPorCuenta { get; set; }
+        public List<CuentaObjetivo> CuentaObjetivo { get; set; }
         public int ClienteId { get; set; }
         public string NumCuenta { get; set; }
     }

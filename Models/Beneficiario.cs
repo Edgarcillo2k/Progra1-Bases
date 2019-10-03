@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Progra1_bases.Models
 {
@@ -16,8 +18,7 @@ namespace Progra1_bases.Models
         [Display(Name = "Parentesco")]
         public int ParentescoId { get; set; }
         public bool Activo { get; set; }
-        public int? CuentaAhorroId { get; set; }
-        public virtual CuentaAhorro CuentaAhorro { get; set; }
+        public List<BeneficiarioPorCuenta> BeneficiarioPorCuenta { get; set; }
         public string NumCuenta { get; set; }
     }
 }

@@ -220,8 +220,7 @@ namespace Progra1_bases.Controllers
                                     FechaDesactivacion = reader.GetDateTime(6),
                                     PorcentajeBeneficio = reader.GetInt32(7),
                                     ParentescoId = reader.GetInt32(8),
-                                    Activo = reader.GetBoolean(9),
-                                    CuentaAhorroId = reader.GetInt32(10)
+                                    Activo = reader.GetBoolean(9)
                                 });
                             }
                             return View(beneficiarios);
@@ -258,7 +257,7 @@ namespace Progra1_bases.Controllers
                                 {
                                     ID = reader.GetInt32(0),
                                     Nombre = reader.GetString(1),
-                                    Descripcion = reader.GetString(2),
+                                    //Descripcion = reader.GetString(2),
                                     FechaInicio = reader.GetDateTime(3),
                                     FechaFinalizacion = reader.GetDateTime(4),
                                     Monto = reader.GetDecimal(5),
