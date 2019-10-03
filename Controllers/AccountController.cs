@@ -257,7 +257,7 @@ namespace Progra1_bases.Controllers
                                 {
                                     ID = reader.GetInt32(0),
                                     Nombre = reader.GetString(1),
-                                    //Descripcion = reader.GetString(2),
+                                    Descripcion = reader.GetString(2),
                                     FechaInicio = reader.GetDateTime(3),
                                     FechaFinalizacion = reader.GetDateTime(4),
                                     Monto = reader.GetDecimal(5),
