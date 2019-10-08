@@ -401,14 +401,14 @@ namespace Progra1_bases.Controllers
             }
             return View("Success");
         }
-        public IActionResult DesactivarCuentaObjetivo(int nombre)
+        public IActionResult DesactivarCuentaObjetivo(int id)
         {
             using (var con = new SqlConnection(_connectionString))
             {
                 using (var cmd = new SqlCommand("dbo.DesactivarCuentaObjetivo", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Id", HttpContext.Session.GetInt32("id"));
+                    cmd.Parameters.AddWithValue("@Id", id);
                     con.Open();
                     cmd.ExecuteNonQuery();
                 }
@@ -508,6 +508,7 @@ namespace Progra1_bases.Controllers
                     //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
                     cmd.Parameters.AddWithValue("@Id", id);
                     cmd.Parameters.AddWithValue("@substring", Filtro);
+                    cmd.Parameters.AddWithValue("@idCliente", HttpContext.Session.GetInt32("id"));
                     con.Open();
 
                     using (var reader = cmd.ExecuteReader())
@@ -553,6 +554,10 @@ namespace Progra1_bases.Controllers
                     cmd.Parameters.AddWithValue("@parentescoId", ParentescoId);
                     cmd.Parameters.AddWithValue("@porcentajeBeneficio", PorcentajeBeneficio);
                     cmd.Parameters.AddWithValue("@clienteId",HttpContext.Session.GetInt32("id"));
+                    cmd.Parameters.AddWithValue("@ext1", Extension1);
+                    cmd.Parameters.AddWithValue("@ext2", Extension2);
+                    cmd.Parameters.AddWithValue("@num1", Numero1);
+                    cmd.Parameters.AddWithValue("@num1", Numero2);
                     SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
                     returnParameter.Direction = ParameterDirection.ReturnValue;
                     con.Open();
@@ -573,8 +578,6 @@ namespace Progra1_bases.Controllers
                             ViewBag.error = "Error: El documento de identidad insertado ya esta en uso";
                             break;
                         default:
-                            AgregarTelefono(Extension1,Numero1,error);
-                            AgregarTelefono(Extension2, Numero2, error);
                             ViewBag.error = "Beneficiario agregado con exito";
                             break;
                     }
