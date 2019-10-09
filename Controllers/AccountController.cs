@@ -557,7 +557,7 @@ namespace Progra1_bases.Controllers
                     cmd.Parameters.AddWithValue("@ext1", Extension1);
                     cmd.Parameters.AddWithValue("@ext2", Extension2);
                     cmd.Parameters.AddWithValue("@num1", Numero1);
-                    cmd.Parameters.AddWithValue("@num1", Numero2);
+                    cmd.Parameters.AddWithValue("@num2", Numero2);
                     SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
                     returnParameter.Direction = ParameterDirection.ReturnValue;
                     con.Open();
