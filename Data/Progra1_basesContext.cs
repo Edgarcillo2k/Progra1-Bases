@@ -40,5 +40,8 @@ namespace Progra1_bases.Models
         public DbSet<Progra1_bases.Models.TipoCuenta> TipoCuenta { get; set; }
 
         public DbSet<Progra1_bases.Models.TipoMovimiento> TipoMovimiento { get; set; }
+        public DbSet<Progra1_bases.Models.TipoMovimientoCO> TipoMovimientoCO { get; set; }
+        public DbSet<Progra1_bases.Models.TipoEvento> TipoEvento { get; set; }
+        public DbSet<Progra1_bases.Models.Evento> Evento { get; set; }
     }
 }

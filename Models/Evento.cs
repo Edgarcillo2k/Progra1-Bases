@@ -13,7 +13,8 @@ namespace Progra1_bases.Models
         [DataType(DataType.Date)]
         public DateTime Fecha { get; set; }
         public int PersonaId { get; set; }
-        public XmlDocument XMLAntes { get; set; }
-        public XmlDocument XMLDespues { get; set; }
+        public string XMLAntes { get; set; }
+        public string XMLDespues { get; set; }
+        public int TipoEventoID { get; set; }
     }
 }

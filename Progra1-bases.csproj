@@ -21,6 +21,18 @@
     <Compile Remove="Migrations\20191015145902_EventoLpm.Designer.cs" />
     <Compile Remove="Migrations\20191015150038_lpm.cs" />
     <Compile Remove="Migrations\20191015150038_lpm.Designer.cs" />
+    <Compile Remove="Migrations\20191015150839_lpm.cs" />
+    <Compile Remove="Migrations\20191015150839_lpm.Designer.cs" />
+    <Compile Remove="Migrations\20191015151808_lpm.cs" />
+    <Compile Remove="Migrations\20191015151808_lpm.Designer.cs" />
+    <Compile Remove="Migrations\20191015152025_lpm2.cs" />
+    <Compile Remove="Migrations\20191015152025_lpm2.Designer.cs" />
+    <Compile Remove="Migrations\20191015152445_Initial.cs" />
+    <Compile Remove="Migrations\20191015152445_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20191015152828_Prueba2.cs" />
+    <Compile Remove="Migrations\20191015152828_Prueba2.Designer.cs" />
+    <Compile Remove="Migrations\20191015153440_Prueba2.cs" />
+    <Compile Remove="Migrations\20191015153440_Prueba2.Designer.cs" />
   </ItemGroup>
 
 
