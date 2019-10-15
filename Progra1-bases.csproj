@@ -9,6 +9,18 @@
   <ItemGroup>
     <Compile Remove="Migrations\20191003142147_Update2.cs" />
     <Compile Remove="Migrations\20191003142147_Update2.Designer.cs" />
+    <Compile Remove="Migrations\20191012041324_Randoms.cs" />
+    <Compile Remove="Migrations\20191012041324_Randoms.Designer.cs" />
+    <Compile Remove="Migrations\20191015140938_RelacionCuentaObjetivo.cs" />
+    <Compile Remove="Migrations\20191015140938_RelacionCuentaObjetivo.Designer.cs" />
+    <Compile Remove="Migrations\20191015145732_Prueba2.cs" />
+    <Compile Remove="Migrations\20191015145732_Prueba2.Designer.cs" />
+    <Compile Remove="Migrations\20191015145808_prueba3.cs" />
+    <Compile Remove="Migrations\20191015145808_prueba3.Designer.cs" />
+    <Compile Remove="Migrations\20191015145902_EventoLpm.cs" />
+    <Compile Remove="Migrations\20191015145902_EventoLpm.Designer.cs" />
+    <Compile Remove="Migrations\20191015150038_lpm.cs" />
+    <Compile Remove="Migrations\20191015150038_lpm.Designer.cs" />
   </ItemGroup>
 
 

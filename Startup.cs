@@ -69,7 +69,7 @@ namespace Progra1_bases
             });
             CargaXml("dbo.BorrarDatos");
             CargaXml("dbo.CargarDatosEsenciales");
-            CargaXml("dbo.Script_Simulacion");
+            CargaXml("dbo.Script_Simulacion");   
         }
         public void CargaXml(string sp)
         {

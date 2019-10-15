@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Progra1_bases.Models;
 
 namespace Progra1_bases.Migrations
 {
     [DbContext(typeof(Progra1_basesContext))]
-    partial class Progra1_basesContextModelSnapshot : ModelSnapshot
+    [Migration("20191012042006_CorreccionesUndo")]
+    partial class CorreccionesUndo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,13 +27,9 @@ namespace Progra1_bases.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("Activo");
-
                     b.Property<int>("BeneficiarioId");
 
                     b.Property<int?>("CuentaAhorroId");
-
-                    b.Property<DateTime?>("FechaDesactivacion");
 
                     b.HasKey("ID");
 
@@ -194,32 +192,6 @@ namespace Progra1_bases.Migrations
                     b.ToTable("Movimiento");
                 });
 
-            modelBuilder.Entity("Progra1_bases.Models.MovimientoCO", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("CuentaObjetivoID");
-
-                    b.Property<string>("Detalle");
-
-                    b.Property<DateTime>("Fecha");
-
-                    b.Property<decimal>("Monto")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("TipoMovimiento");
-
-                    b.Property<int>("TipoMovimientoCOId");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("CuentaObjetivoID");
-
-                    b.ToTable("MovimientoCO");
-                });
-
             modelBuilder.Entity("Progra1_bases.Models.Parentesco", b =>
                 {
                     b.Property<int>("ID")
@@ -354,6 +326,10 @@ namespace Progra1_bases.Migrations
                 {
                     b.HasBaseType("Progra1_bases.Models.Persona");
 
+                    b.Property<bool>("Activo");
+
+                    b.Property<DateTime>("FechaDesactivacion");
+
                     b.Property<string>("NumCuenta");
 
                     b.Property<int>("ParentescoId");
@@ -428,13 +404,6 @@ namespace Progra1_bases.Migrations
                         .WithMany("Movimientos")
                         .HasForeignKey("TipoMovimientoId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Progra1_bases.Models.MovimientoCO", b =>
-                {
-                    b.HasOne("Progra1_bases.Models.CuentaObjetivo", "CuentaObjetivo")
-                        .WithMany("MovimientosCO")
-                        .HasForeignKey("CuentaObjetivoID");
                 });
 
             modelBuilder.Entity("Progra1_bases.Models.Persona", b =>

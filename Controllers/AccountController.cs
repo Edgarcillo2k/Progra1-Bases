@@ -217,10 +217,8 @@ namespace Progra1_bases.Controllers
                                     Email = reader.GetString(3),
                                     DocId = reader.GetInt32(4),
                                     Doc = reader.GetString(5),
-                                    FechaDesactivacion = reader.GetDateTime(6),
-                                    PorcentajeBeneficio = reader.GetInt32(7),
-                                    ParentescoId = reader.GetInt32(8),
-                                    Activo = reader.GetBoolean(9)
+                                    PorcentajeBeneficio = reader.GetInt32(6),
+                                    ParentescoId = reader.GetInt32(7)
                                 });
                             }
                             return View(beneficiarios);

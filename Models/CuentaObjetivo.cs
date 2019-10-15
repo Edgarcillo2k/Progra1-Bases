@@ -23,5 +23,6 @@ namespace Progra1_bases.Models
         public string NumCuenta { get; set; }
         public string Descripcion { get; set; }
         public int Desactivada { get; set; }
+        public List<MovimientoCO> MovimientosCO { get; set; }
     }
 }
