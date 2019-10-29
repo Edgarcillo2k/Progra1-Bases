@@ -67,9 +67,7 @@ namespace Progra1_bases
                     name: "default",
                     template: "{controller=Account}/{action=Index}/{id?}");
             });
-            CargaXml("dbo.BorrarDatos");
-            CargaXml("dbo.CargarDatosEsenciales");
-            CargaXml("dbo.Script_Simulacion");   
+            CargaXml("dbo.Run"); 
         }
         public void CargaXml(string sp)
         {

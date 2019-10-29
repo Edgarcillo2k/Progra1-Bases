@@ -17,5 +17,9 @@ namespace Progra1_bases.Models
         [DataType(DataType.Date)]
         public DateTime? FechaDesactivacion { get; set; }
         public bool Activo { get; set; }
+        [Display(Name = "Porcentaje de beneficio")]
+        public int PorcentajeBeneficio { get; set; }
+        public int ParentescoId { get; set; }
+        public string NumCuenta { get; set; }
     }
 }

@@ -172,6 +172,7 @@ namespace Progra1_bases.Controllers
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
+                        cmd.Parameters.AddWithValue("@IdCliente", HttpContext.Session.GetInt32("id"));
                         cmd.Parameters.AddWithValue("@IdBeneficiario1",Id0 );
                         cmd.Parameters.AddWithValue("@porcentajeBenef1",Porcentaje0 );
                         cmd.Parameters.AddWithValue("@IdBeneficiario2", Id1);

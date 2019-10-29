@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Progra1_bases.Models;
 
 namespace Progra1_bases.Migrations
 {
     [DbContext(typeof(Progra1_basesContext))]
-    partial class Progra1_basesContextModelSnapshot : ModelSnapshot
+    [Migration("20191029135931_CorreccionPorcentaje")]
+    partial class CorreccionPorcentaje
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,10 +34,6 @@ namespace Progra1_bases.Migrations
                     b.Property<int?>("CuentaAhorroId");
 
                     b.Property<DateTime?>("FechaDesactivacion");
-
-                    b.Property<string>("NumCuenta");
-
-                    b.Property<int>("ParentescoId");
 
                     b.Property<int>("PorcentajeBeneficio");
 
