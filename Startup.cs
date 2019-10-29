@@ -67,7 +67,7 @@ namespace Progra1_bases
                     name: "default",
                     template: "{controller=Account}/{action=Index}/{id?}");
             });
-            CargaXml("dbo.Run"); 
+            //CargaXml("dbo.Run"); 
         }
         public void CargaXml(string sp)
         {

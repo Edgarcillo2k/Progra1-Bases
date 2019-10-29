@@ -386,7 +386,6 @@ namespace Progra1_bases.Controllers
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Id",id);
-                    cmd.Parameters.AddWithValue("@FechaDesactivacion", DateTime.Today);
                     SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
                     returnParameter.Direction = ParameterDirection.ReturnValue;
                     con.Open();
