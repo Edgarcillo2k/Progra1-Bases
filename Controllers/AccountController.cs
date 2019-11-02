@@ -201,7 +201,6 @@ namespace Progra1_bases.Controllers
                     //esto agrega los parametros, con @parametro especificas el nombre que tiene en el sp
                     cmd.Parameters.AddWithValue("@Id", HttpContext.Session.GetInt32("id"));
                     con.Open();
-
                     using (var reader = cmd.ExecuteReader())
                     {
                         if (reader.HasRows)

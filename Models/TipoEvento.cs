@@ -10,5 +10,6 @@ namespace Progra1_bases.Models
         public int ID { get; set; }
         public string Nombre { get; set; }
         public List<Evento> Eventos { get; set; }
+        public int TipoDeEvento { get; set; }
     }
 }
